@@ -1,128 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Construction</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: radial-gradient(circle, #8A2BE2, #4B0082);
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .cursor {
-            width: 10px;
-            height: 10px;
-            background-color: white;
-            border-radius: 50%;
-            position: absolute;
-            pointer-events: none;
-            transition: transform 0.05s ease;
-            mix-blend-mode: difference;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Beat Animation</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <h1>"Legends don’t wait. But this site will... for now."</h1>
-    <canvas id="canvas"></canvas>
-    <div class="cursor"></div>
-    <script>
-        const canvas = document.getElementById("canvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+  <canvas id="heartCanvas"></canvas>
 
-        let points = [];
-        const numPoints = 100;
-        let mouse = { x: null, y: null };
-
-        for (let i = 0; i < numPoints; i++) {
-            points.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 2,
-                vy: (Math.random() - 0.5) * 2
-            });
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "white";
-
-            for (let i = 0; i < points.length; i++) {
-                let p1 = points[i];
-                ctx.beginPath();
-                ctx.arc(p1.x, p1.y, 3, 0, Math.PI * 2);
-                ctx.fill();
-
-                for (let j = i + 1; j < points.length; j++) {
-                    let p2 = points[j];
-                    let dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
-                    if (dist < 120) {
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 120})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(p1.x, p1.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.stroke();
-                    }
-                }
-
-                if (mouse.x && mouse.y) {
-                    let dist = Math.hypot(p1.x - mouse.x, p1.y - mouse.y);
-                    if (dist < 150) {
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 150})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(p1.x, p1.y);
-                        ctx.lineTo(mouse.x, mouse.y);
-                        ctx.stroke();
-                    }
-                }
-
-                p1.x += p1.vx;
-                p1.y += p1.vy;
-                if (p1.x < 0 || p1.x > canvas.width) p1.vx *= -1;
-                if (p1.y < 0 || p1.y > canvas.height) p1.vy *= -1;
-            }
-            requestAnimationFrame(draw);
-        }
-        draw();
-
-        document.addEventListener("mousemove", (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-            const cursor = document.querySelector(".cursor");
-            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-        });
-
-        window.addEventListener("resize", () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-    </script>
+  <script>
+    // Initialize canvas
+    const canvas = document.getElementById('heartCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Set dimensions
+    const W = 800;
+    const H = 800;
+    canvas.width = W;
+    canvas.height = H;
+    
+    // Helper functions
+    function drawCircle(x, y, r, color) {
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+    
+    function rand(a0, a1) {
+      return Math.random() * (a1 - a0) + a0;
+    }
+    
+    function randomExponential(rate) {
+      return -Math.log(1 - Math.random()) / rate;
+    }
+    
+    function hsvToRgb(h, s, v) {
+      let r, g, b;
+      const i = Math.floor(h * 6);
+      const f = h * 6 - i;
+      const p = v * (1 - s);
+      const q = v * (1 - f * s);
+      const t = v * (1 - (1 - f) * s);
+      
+      switch (i % 6) {
+        case 0: r = v; g = t; b = p; break;
+        case 1: r = q; g = v; b = p; break;
+        case 2: r = p; g = v; b = t; break;
+        case 3: r = p; g = q; b = v; break;
+        case 4: r = t; g = p; b = v; break;
+        case 5: r = v; g = p; b = q; break;
+      }
+      
+      return [r * 255, g * 255, b * 255];
+    }
+    
+    // Create parameters arrays
+    const size_steps = 100;
+    const a = Array(size_steps).fill(13);
+    const b = Array(size_steps).fill().map((_, i) => -5 + (i / (size_steps - 1)) * (5 - 3.3));
+    const c = Array(size_steps).fill().map((_, i) => -2 + (i / (size_steps - 1)) * (2 - 2.4));
+    const d = Array(size_steps).fill().map((_, i) => -1 + (i / (size_steps - 1)) * (1 - 0.16));
+    const scalex = Array(size_steps).fill().map((_, i) => (1 + (i / (size_steps - 1)) * (1.18 - 1)) * 10);
+    const scaley = Array(size_steps).fill().map((_, i) => (1 + (i / (size_steps - 1)) * (1.36 - 1)) * 10);
+    
+    // Particle classes
+    class PersistentParticle {
+      constructor(t, size, color, off_s) {
+        this.t = t;
+        this.off_s = off_s;
+        this.size = size;
+        this.color = color;
+      }
+      
+      getPos(i) {
+        const t = this.t;
+        
+        let x_pos = 16 * Math.pow(Math.sin(t), 3);
+        x_pos *= (scalex[i] + this.off_s);
+        
+        let y_pos = a[i] * Math.cos(t) + b[i] * Math.cos(2*t) + c[i] * Math.cos(3*t) + d[i] * Math.cos(4*t);
+        y_pos *= (scaley[i] + this.off_s);
+        
+        return [Math.floor(x_pos + W / 2), Math.floor(-y_pos + H / 2)];
+      }
+      
+      draw(i) {
+        const [x, y] = this.getPos(i);
+        drawCircle(x, y, this.size, this.color);
+      }
+    }
+    
+    class GlitterParticle {
+      constructor(t, size, color, off_x, off_y, off_s, phi) {
+        this.t = t;
+        this.off_x = off_x;
+        this.off_y = off_y;
+        this.off_s = off_s;
+        this.size = size;
+        this.color = color;
+        this.phi = phi;
+      }
+      
+      getPos(i) {
+        const t = this.t;
+        
+        let x_pos = 16 * Math.pow(Math.sin(t), 3);
+        x_pos += this.off_x;
+        x_pos *= (scalex[i] + this.off_s);
+        
+        let y_pos = a[i] * Math.cos(t) + b[i] * Math.cos(2*t) + c[i] * Math.cos(3*t) + d[i] * Math.cos(4*t);
+        y_pos += this.off_y;
+        y_pos *= (scaley[i] + this.off_s);
+        
+        return [Math.floor(x_pos + W / 2), Math.floor(-y_pos + H / 2)];
+      }
+      
+      draw(i) {
+        const [x, y] = this.getPos(i);
+        const alpha = Math.floor(128 * Math.cos(this.phi + i / 5) + 127);
+        const colorWithAlpha = `rgba(${this.color[0]}, ${this.color[1]}, ${this.color[2]}, ${alpha/255})`;
+        drawCircle(x, y, this.size, colorWithAlpha);
+      }
+    }
+    
+    // Create particles
+    const persistent_particles = [];
+    const glitter_particles = [];
+    
+    // Create persistent particles
+    for (let repeat = 0; repeat < 3; repeat++) {
+      // First half
+      for (let j = 0; j < 1000; j++) {
+        const t = 0.18 + (j / 999) * (Math.PI - 0.36);
+        const off_s = -randomExponential(1.8);
+        const size = rand(1.5, 2.5);
+        
+        // Color
+        const [red, green, blue] = hsvToRgb(0.95, rand(0.2, 0.7), 1);
+        const alpha = Math.random() * 255;
+        const color = `rgba(${Math.floor(red)}, ${Math.floor(green)}, ${Math.floor(blue)}, ${alpha/255})`;
+        
+        const particle = new PersistentParticle(t, size, color, off_s);
+        persistent_particles.push(particle);
+      }
+      
+      // Second half
+      for (let j = 0; j < 1000; j++) {
+        const t = Math.PI + 0.18 + (j / 999) * (Math.PI - 0.36);
+        const off_s = -randomExponential(1.8);
+        const size = rand(1.5, 2.5);
+        
+        // Color
+        const [red, green, blue] = hsvToRgb(0.95, rand(0.2, 0.7), 1);
+        const alpha = Math.random() * 255;
+        const color = `rgba(${Math.floor(red)}, ${Math.floor(green)}, ${Math.floor(blue)}, ${alpha/255})`;
+        
+        const particle = new PersistentParticle(t, size, color, off_s);
+        persistent_particles.push(particle);
+      }
+    }
+    
+    // Create glitter particles
+    for (let repeat = 0; repeat < 3; repeat++) {
+      // First half
+      for (let j = 0; j < 1000; j++) {
+        const t = 0.2 + (j / 999) * (Math.PI - 0.4);
+        const off_x = Math.random() * 4 - 2; // Gaussian approx
+        const off_y = Math.random() * 4 - 2; // Gaussian approx
+        const off_s = Math.random() * 3 - 3.3; // Gaussian approx
+        const size = rand(1.5, 2.5);
+        
+        // Color
+        const [red, green, blue] = hsvToRgb(0.95, rand(0.5, 0.8), 1);
+        const color = [Math.floor(red), Math.floor(green), Math.floor(blue)];
+        
+        // Phi
+        const phi = rand(0, 2 * Math.PI);
+        
+        const particle = new GlitterParticle(t, size, color, off_x, off_y, off_s, phi);
+        glitter_particles.push(particle);
+      }
+      
+      // Second half
+      for (let j = 0; j < 1000; j++) {
+        const t = Math.PI + 0.2 + (j / 999) * (Math.PI - 0.4);
+        const off_x = Math.random() * 4 - 2; // Gaussian approx
+        const off_y = Math.random() * 4 - 2; // Gaussian approx
+        const off_s = Math.random() * 3 - 3.3; // Gaussian approx
+        const size = rand(1.5, 2.5);
+        
+        // Color
+        const [red, green, blue] = hsvToRgb(0.95, rand(0.5, 0.8), 1);
+        const color = [Math.floor(red), Math.floor(green), Math.floor(blue)];
+        
+        // Phi
+        const phi = rand(0, 2 * Math.PI);
+        
+        const particle = new GlitterParticle(t, size, color, off_x, off_y, off_s, phi);
+        glitter_particles.push(particle);
+      }
+    }
+    
+    // Create animation indices
+    const bloom_indices = Array(40).fill().map((_, i) => Math.floor(i * (size_steps - 1) / 39));
+    const shrink_indices = Array(30).fill().map((_, i) => Math.floor((size_steps - 1) - i * (size_steps - 1) / 29));
+    const indices = [...bloom_indices, ...shrink_indices];
+    
+    // Animation
+    let frame = 0;
+    
+    function animate() {
+      // Clear canvas
+      ctx.clearRect(0, 0, W, H);
+      
+      // Get current index
+      const index = indices[frame % indices.length];
+      
+      // Draw persistent particles
+      for (const p of persistent_particles) {
+        p.draw(index);
+      }
+      
+      // Draw glitter particles
+      for (const p of glitter_particles) {
+        p.draw(size_steps - 1 - index);
+      }
+      
+      // Increment frame
+      frame++;
+      
+      // Request next frame
+      requestAnimationFrame(animate);
+    }
+    
+    // Start animation
+    animate();
+  </script>
 </body>
 </html>
