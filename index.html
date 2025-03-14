@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberSec Portfolio</title>
+    <title>CyberSec - Coming Soon</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Orbitron&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -82,40 +82,6 @@
             margin: 0 auto;
         }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .cyber-card {
-            background: var(--terminal-gray);
-            border: 1px solid var(--hacker-green);
-            padding: 2rem;
-            position: relative;
-            transition: all 0.3s;
-        }
-
-        .cyber-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px var(--hacker-green);
-        }
-
-        .skill-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .badge {
-            background: rgba(0, 255, 0, 0.1);
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--hacker-green);
-            border-radius: 3px;
-        }
-
         .matrix-bg {
             position: fixed;
             top: 0;
@@ -124,39 +90,49 @@
             opacity: 0.1;
         }
 
-        .cyber-form input, .cyber-form textarea {
-            width: 100%;
-            padding: 1rem;
-            margin: 1rem 0;
-            background: var(--terminal-gray);
-            border: 1px solid var(--hacker-green);
-            color: var(--hacker-green);
+        /* Coming Soon Styles */
+        .coming-soon {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            text-align: center;
         }
 
-        .submit-btn {
-            background: var(--hacker-green);
-            color: black;
-            padding: 1rem 2rem;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
+        .coming-soon h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .submit-btn:hover {
-            background: var(--cyber-blue);
+        .coming-soon p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
 
-        .certification-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .status-text {
+            color: var(--cyber-blue);
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
         }
 
-        .cert-card {
-            background: #001100;
-            padding: 1.5rem;
-            border-left: 5px solid var(--hacker-green);
+        .quote {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            border-left: 4px solid var(--cyber-blue);
+            background: rgba(0, 255, 0, 0.05);
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px var(--hacker-green);
+        }
+
+        .quote-author {
+            text-align: right;
+            color: var(--cyber-blue);
+            font-style: italic;
+            margin-top: 1rem;
         }
     </style>
 </head>
@@ -164,80 +140,25 @@
     <canvas class="matrix-bg" id="matrix"></canvas>
 
     <header class="header">
-        <h1 class="glitch">root@cybersec-portfolio:~<span class="typing"></span></h1>
+        <h1 class="glitch">root@cybersec:~<span class="typing"></span></h1>
     </header>
 
     <nav class="cyber-nav">
-        <a href="#about" class="nav-btn">About_Me</a>
-        <a href="#skills" class="nav-btn">Cyber_Skills</a>
-        <a href="#projects" class="nav-btn">Security_Projects</a>
-        <a href="#certs" class="nav-btn">Certifications</a>
+        <a href="#" class="nav-btn">System_Loading</a>
+        <a href="#" class="nav-btn">Encryption_In_Progress</a>
+        <a href="#" class="nav-btn">Initializing_Security</a>
     </nav>
 
-    <section id="about" class="section">
-        <h2>// About This Security Analyst</h2>
-        <p>> Cybersecurity specialist with expertise in:</p>
-        <ul>
-            <li>Network Security & Penetration Testing</li>
-            <li>Incident Response & Threat Hunting</li>
-            <li>Vulnerability Assessment & Risk Management</li>
-            <li>Security Architecture Design</li>
-        </ul>
-    </section>
-
-    <section id="skills" class="section">
-        <h2>// Security Toolbox</h2>
-        <div class="skill-badges">
-            <div class="badge">Kali Linux</div>
-            <div class="badge">Metasploit</div>
-            <div class="badge">Wireshark</div>
-            <div class="badge">Nmap</div>
-            <div class="badge">SIEM Solutions</div>
-            <div class="badge">Firewall Config</div>
-            <div class="badge">IDS/IPS</div>
-            <div class="badge">OWASP Top 10</div>
-        </div>
-    </section>
-
-    <section id="projects" class="section">
-        <h2>// Security Projects</h2>
-        <div class="project-grid">
-            <div class="cyber-card">
-                <h3>Enterprise Network Pentest</h3>
-                <p>> Identified 15+ critical vulnerabilities</p>
-                <p>> Tools: Nessus, Burp Suite, SQLmap</p>
-            </div>
-            <div class="cyber-card">
-                <h3>Phishing Detection System</h3>
-                <p>> ML-based email analysis platform</p>
-                <p>> Reduced false positives by 40%</p>
-            </div>
-            <div class="cyber-card">
-                <h3>Security Awareness Training</h3>
-                <p>> Developed corporate training program</p>
-                <p>> Reduced click-through rate by 65%</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="certs" class="section">
-        <h2>// Security Certifications</h2>
-        <div class="certification-grid">
-            <div class="cert-card">
-                <h3>CEH v11</h3>
-                <p>Certified Ethical Hacker</p>
-                <p>EC-Council</p>
-            </div>
-            <div class="cert-card">
-                <h3>CISSP</h3>
-                <p>Certified Information Systems Security Professional</p>
-                <p>(ISC)²</p>
-            </div>
-            <div class="cert-card">
-                <h3>CompTIA Security+</h3>
-                <p>Information Security Fundamentals</p>
-                <p>CompTIA</p>
-            </div>
+    <section class="section coming-soon">
+        <h2>// SYSTEM STATUS: INITIALIZING</h2>
+        <p>> Running security protocols...</p>
+        <p>> Deploying cybersecurity measures...</p>
+        
+        <div class="status-text glitch">COMING SOON</div>
+        
+        <div class="quote">
+            "The best hackers don't find vulnerabilities, they understand systems so deeply they can feel them in their bones. The best security isn't a wall, it's architecture. Security is not a product, but a process."
+            <div class="quote-author">— Security Protocol #0x1337</div>
         </div>
     </section>
 
