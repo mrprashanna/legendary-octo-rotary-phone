@@ -3,263 +3,461 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prashanna - Coming Soon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --green: #00ff00;
-            --blue: #00f7ff;
-            --prompt: #729fcf;
-            --folder: #ad7fa8;
-            --cmd: #8ae234;
-        }
-        * {box-sizing: border-box; margin: 0; padding: 0;}
-        body {
-            background: #000;
-            color: var(--green);
-            font-family: 'Ubuntu Mono', monospace;
-            line-height: 1.4;
-            overflow-x: hidden;
-        }
-        .cursor {content: "|"; animation: blink 1s step-end infinite;}
-        @keyframes blink {0%, 100% {opacity: 1;} 50% {opacity: 0;}}
-        
-        .glitch {animation: glitch 2s infinite;}
-        @keyframes glitch {
-            2%, 98% {transform: translate(2px, 0);}
-            4%, 96% {transform: translate(-2px, 0);}
-        }
-        
-        .matrix {
-            position: fixed;
-            top: 0; left: 0; z-index: -1;
-            opacity: 0.1;
-            width: 100%; height: 100%;
-        }
-        
-        .terminal {
-            margin: 1rem;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .term-bar {
-            background: #300a24;
-            padding: 8px 12px;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .controls span {
-            display: inline-block;
-            width: 12px; height: 12px;
-            border-radius: 50%;
-            margin-right: 6px;
-        }
-        
-        .red {background: #ff5f56;}
-        .yellow {background: #ffbd2e;}
-        .green {background: #27c93f;}
-        
-        .term-body {
-            background: rgba(0, 0, 0, 0.85);
-            padding: 12px;
-            height: 200px;
-            overflow-y: auto;
-        }
-        
-        .line {margin-bottom: 8px;}
-        .prompt {color: var(--prompt);}
-        .folder {color: var(--folder);}
-        .cmd {color: var(--cmd);}
-        
-        .content {
-            padding: 1rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-            margin-bottom: 1rem;
-        }
-        
-        .status {
-            color: var(--blue);
-            font-size: clamp(1.2rem, 4vw, 1.5rem);
-            margin: 1.5rem 0;
-            letter-spacing: 2px;
-        }
-        
-        .quote {
-            margin: 1.5rem auto;
-            padding: 1rem;
-            border-left: 4px solid var(--blue);
-            background: rgba(0, 255, 0, 0.05);
-            text-align: left;
-        }
-        
-        footer {
-            padding: 1rem;
-            text-align: center;
-            font-size: 0.8rem;
-            border-top: 1px solid rgba(0, 255, 0, 0.2);
-        }
-        
-        @media (min-width: 768px) {
-            .terminal {margin: 2rem auto; max-width: 80%;}
-            .term-body {height: 250px;}
-        }
-    </style>
+    <title>Prashanna Shrestha | Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-updates.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <canvas class="matrix" id="matrix"></canvas>
-
-    <div class="terminal">
-        <div class="term-bar">
-            <div class="controls">
-                <span class="red"></span>
-                <span class="yellow"></span>
-                <span class="green"></span>
-            </div>
-            <div>prashanna@kali:~</div>
-        </div>
-        
-        <div class="term-body" id="termBody">
-            <div class="line">
-                <span class="prompt">prashanna@kali</span>:<span class="folder">~</span>$ <span class="cmd">./launch_prashanna.sh</span>
-            </div>
-            <div class="line">Initializing Prashanna platform...</div>
-            <div class="line">
-                <span class="prompt">prashanna@kali</span>:<span class="folder">~</span>$ <span id="userInput" class="cursor"></span>
-            </div>
-        </div>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
     </div>
 
-    <div class="content">
-        <h1>// SYSTEM STATUS: INITIALIZING</h1>
-        <p>> Deploying security measures...</p>
-        <p>> Scanning network perimeter...</p>
-        
-        <div class="status glitch">COMING SOON</div>
-        
-        <div class="quote">
-            "The best hackers don't find vulnerabilities, they understand systems so deeply they can feel them in their bones."
-            <div style="text-align:right;color:var(--blue);font-style:italic;margin-top:8px;">— Security Protocol #0x1337</div>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="#hero"><span>P</span>rashanna</a>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="#hero" class="active">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="admin/login.html" class="admin-link"><i class="fas fa-lock"></i> Admin</a></li>
+                    </ul>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <footer>&copy; Prashanna 2025</footer>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="text-content">
+                    <h1>Hi, I'm <span>Prashanna Shrestha</span></h1>
+                    <h2>I'm a <span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
+                    <p>B.Sc.CSIT Student at IOST, TU Nepal</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn primary-btn">Get In Touch</a>
+                        <a href="#projects" class="btn secondary-btn">View My Work</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="assets/images/profile-placeholder.png" alt="Prashanna Shrestha">
+                        <div id="profileUploadBtn" class="photo-upload-btn">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <input type="file" id="profilePhotoUpload" accept="image/*">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <a href="#about"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </section>
 
-    <script>
-        // Matrix background
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            initMatrix();
-        });
-        
-        const letters = '01アイウエオカキクケコサシスセソ';
-        const fontSize = 14;
-        let columns, drops = [];
-        
-        function initMatrix() {
-            columns = Math.floor(canvas.width/fontSize);
-            drops = [];
-            for(let i = 0; i < columns; i++) {
-                drops[i] = Math.random() * canvas.height/fontSize;
-            }
-        }
-        
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px monospace';
-            
-            for(let i = 0; i < drops.length; i++) {
-                const text = letters.charAt(Math.floor(Math.random() * letters.length));
-                ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-                
-                if(drops[i]*fontSize > canvas.height && Math.random() > 0.98) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-        
-        initMatrix();
-        setInterval(drawMatrix, 50);
-        
-        // Terminal input simulation
-        const commands = ['whoami', 'ls -la', 'cat /etc/passwd', 'sudo nmap -sS -p- localhost', 'exit'];
-        const responses = [
-            'prashanna',
-            'total 20\ndrwxr-xr-x  3 prashanna prashanna 4096 Mar 15 10:42 .\ndrwxr-xr-x 17 root root 4096 Mar 14 14:23 ..\n-rwxr-xr-x  1 prashanna prashanna 2483 Mar 15 09:15 launch_prashanna.sh',
-            'Permission denied',
-            'Starting Nmap 7.94 ( https://nmap.org )\nScanning localhost (127.0.0.1)',
-            'Connection closed.'
-        ];
-        
-        const termBody = document.getElementById('termBody');
-        const userInput = document.getElementById('userInput');
-        
-        let currentCmd = '';
-        let i = 0;
-        let commandIndex = 0;
-        
-        function typeCommand() {
-            if (i < commands[commandIndex].length) {
-                currentCmd += commands[commandIndex].charAt(i);
-                userInput.textContent = currentCmd;
-                i++;
-                setTimeout(typeCommand, Math.random() * 200 + 50);
-            } else {
-                setTimeout(executeCommand, 500);
-            }
-        }
-        
-        function executeCommand() {
-            // Remove cursor from input line
-            const inputLine = userInput.parentNode;
-            inputLine.innerHTML = inputLine.innerHTML.replace('<span id="userInput" class="cursor"></span>', currentCmd);
-            
-            // Add response
-            const responseLine = document.createElement('div');
-            responseLine.className = 'line';
-            responseLine.textContent = responses[commandIndex];
-            termBody.appendChild(responseLine);
-            
-            // Create new prompt line
-            const newLine = document.createElement('div');
-            newLine.className = 'line';
-            newLine.innerHTML = '<span class="prompt">prashanna@kali</span>:<span class="folder">~</span>$ <span id="userInput" class="cursor"></span>';
-            termBody.appendChild(newLine);
-            
-            // Update reference to new userInput span
-            userInput.removeAttribute('id');
-            userInput = termBody.querySelector('#userInput');
-            
-            // Scroll to bottom
-            termBody.scrollTop = termBody.scrollHeight;
-            
-            // Reset for next command
-            currentCmd = '';
-            i = 0;
-            commandIndex = (commandIndex + 1) % commands.length;
-            
-            setTimeout(typeCommand, 1000);
-        }
-        
-        setTimeout(typeCommand, 1500);
-    </script>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="assets/images/about-placeholder.jpg" alt="About Prashanna">
+                    <div id="aboutUploadBtn" class="photo-upload-btn">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <input type="file" id="aboutPhotoUpload" accept="image/*">
+                </div>
+                <div class="about-text">
+                    <h3>B.Sc.CSIT Student with a passion for technology</h3>
+                    <p>Hello! I'm Prashanna Shrestha, a Computer Science and Information Technology student at the Institute of Science and Technology, Tribhuvan University, Nepal.</p>
+                    <p>I'm passionate about web development, machine learning, and cybersecurity, and constantly working to expand my knowledge and skills in the field of technology.</p>
+                    <p>My goal is to become a skilled full-stack developer and contribute to innovative projects that make a difference, and I'm enthusiastic about opportunities where I can contribute to innovative projects and continue learning.</p>
+                    <div class="personal-info">
+                        <div class="info-item">
+                            <span class="info-title">Name:</span>
+                            <span class="info-value">Prashanna Shrestha</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-title">Email:</span>
+                            <span class="info-value">prashannas@proton.me</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-title">Degree:</span>
+                            <span class="info-value">B.Sc.CSIT</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-title">University:</span>
+                            <span class="info-value">IOST, TU Nepal</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn primary-btn">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Education</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Bachelor of Science in CSIT</h3>
+                        <h4>Institute of Science and Technology, Tribhuvan University</h4>
+                        <p class="timeline-date">20XX - Present</p>
+                        <p>Currently pursuing my degree in Computer Science and Information Technology with a focus on [Your Specialization/Focus Areas].</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Higher Secondary Education</h3>
+                        <h4>[Your High School/College Name]</h4>
+                        <p class="timeline-date">20XX - 20XX</p>
+                        <p>Completed my higher secondary education with a focus on [Your Subjects/Stream].</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Secondary Education</h3>
+                        <h4>[Your School Name]</h4>
+                        <p class="timeline-date">20XX - 20XX</p>
+                        <p>Completed my secondary education with distinction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="skills-content">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <p>HTML/CSS</p>
+                                <p>90%</p>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <p>JavaScript</p>
+                                <p>85%</p>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <p>Python</p>
+                                <p>80%</p>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <p>Java</p>
+                                <p>75%</p>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <p>React</p>
+                                <p>80%</p>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <p>Node.js</p>
+                                <p>75%</p>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <p>Git</p>
+                                <p>85%</p>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <p>Database Management</p>
+                                <p>80%</p>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="app">App</button>
+                <button class="filter-btn" data-filter="other">Other</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-item" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/project1-placeholder.jpg" alt="Project 1">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Project Name 1</h3>
+                                <p>Web Development</p>
+                                <div class="project-links">
+                                    <a href="#" target="_blank"><i class="fas fa-link"></i></a>
+                                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-item" data-category="app">
+                    <div class="project-image">
+                        <img src="assets/images/project2-placeholder.jpg" alt="Project 2">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Project Name 2</h3>
+                                <p>App Development</p>
+                                <div class="project-links">
+                                    <a href="#" target="_blank"><i class="fas fa-link"></i></a>
+                                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-item" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/project3-placeholder.jpg" alt="Project 3">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Project Name 3</h3>
+                                <p>Web Development</p>
+                                <div class="project-links">
+                                    <a href="#" target="_blank"><i class="fas fa-link"></i></a>
+                                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-item" data-category="other">
+                    <div class="project-image">
+                        <img src="assets/images/project4-placeholder.jpg" alt="Project 4">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Project Name 4</h3>
+                                <p>Other Category</p>
+                                <div class="project-links">
+                                    <a href="#" target="_blank"><i class="fas fa-link"></i></a>
+                                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-item" data-category="app">
+                    <div class="project-image">
+                        <img src="assets/images/project5-placeholder.jpg" alt="Project 5">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Project Name 5</h3>
+                                <p>App Development</p>
+                                <div class="project-links">
+                                    <a href="#" target="_blank"><i class="fas fa-link"></i></a>
+                                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-item" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/project6-placeholder.jpg" alt="Project 6">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Project Name 6</h3>
+                                <p>Web Development</p>
+                                <div class="project-links">
+                                    <a href="#" target="_blank"><i class="fas fa-link"></i></a>
+                                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Email</h3>
+                            <p><a href="mailto:prashannas@proton.me">prashannas@proton.me</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="text">
+                            <h3>GitHub</h3>
+                            <p><a href="https://github.com/chief-prash" target="_blank">chief-prash</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Instagram</h3>
+                            <p><a href="https://instagram.com/mrprashanna" target="_blank">mrprashanna</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="text">
+                            <h3>Location</h3>
+                            <p>Kathmandu, Nepal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#hero"><span>P</span>rashanna</a>
+                </div>
+                <div class="social-links">
+                    <a href="mailto:prashannas@proton.me"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/chief-prash" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://instagram.com/mrprashanna" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="admin/login.html" class="admin-link" title="Admin Login"><i class="fas fa-lock"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Prashanna Shrestha. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/upload.js"></script>
 </body>
 </html>
