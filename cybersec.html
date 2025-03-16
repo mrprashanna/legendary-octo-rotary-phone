@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prashanna - Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #00ff00;
+            --blue: #00f7ff;
+            --prompt: #729fcf;
+            --folder: #ad7fa8;
+            --cmd: #8ae234;
+        }
+        * {box-sizing: border-box; margin: 0; padding: 0;}
+        body {
+            background: #000;
+            color: var(--green);
+            font-family: 'Ubuntu Mono', monospace;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+        .cursor {content: "|"; animation: blink 1s step-end infinite;}
+        @keyframes blink {0%, 100% {opacity: 1;} 50% {opacity: 0;}}
+        
+        .glitch {animation: glitch 2s infinite;}
+        @keyframes glitch {
+            2%, 98% {transform: translate(2px, 0);}
+            4%, 96% {transform: translate(-2px, 0);}
+        }
+        
+        .matrix {
+            position: fixed;
+            top: 0; left: 0; z-index: -1;
+            opacity: 0.1;
+            width: 100%; height: 100%;
+        }
+        
+        .terminal {
+            margin: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .term-bar {
+            background: #300a24;
+            padding: 8px 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .controls span {
+            display: inline-block;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        
+        .red {background: #ff5f56;}
+        .yellow {background: #ffbd2e;}
+        .green {background: #27c93f;}
+        
+        .term-body {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 12px;
+            height: 200px;
+            overflow-y: auto;
+        }
+        
+        .line {margin-bottom: 8px;}
+        .prompt {color: var(--prompt);}
+        .folder {color: var(--folder);}
+        .cmd {color: var(--cmd);}
+        
+        .content {
+            padding: 1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+        
+        .status {
+            color: var(--blue);
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin: 1.5rem 0;
+            letter-spacing: 2px;
+        }
+        
+        .quote {
+            margin: 1.5rem auto;
+            padding: 1rem;
+            border-left: 4px solid var(--blue);
+            background: rgba(0, 255, 0, 0.05);
+            text-align: left;
+        }
+        
+        footer {
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(0, 255, 0, 0.2);
+        }
+        
+        @media (min-width: 768px) {
+            .terminal {margin: 2rem auto; max-width: 80%;}
+            .term-body {height: 250px;}
+        }
+    </style>
+</head>
+<body>
+    <canvas class="matrix" id="matrix"></canvas>
+
+    <div class="terminal">
+        <div class="term-bar">
+            <div class="controls">
+                <span class="red"></span>
+                <span class="yellow"></span>
+                <span class="green"></span>
+            </div>
+            <div>prashanna@kali:~</div>
+        </div>
+        
+        <div class="term-body" id="termBody">
+            <div class="line">
+                <span class="prompt">prashanna@kali</span>:<span class="folder">~</span>$ <span class="cmd">./launch_prashanna.sh</span>
+            </div>
+            <div class="line">Initializing Prashanna platform...</div>
+            <div class="line">
+                <span class="prompt">prashanna@kali</span>:<span class="folder">~</span>$ <span id="userInput" class="cursor"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>// SYSTEM STATUS: INITIALIZING</h1>
+        <p>> Deploying security measures...</p>
+        <p>> Scanning network perimeter...</p>
+        
+        <div class="status glitch">COMING SOON</div>
+        
+        <div class="quote">
+            "The best hackers don't find vulnerabilities, they understand systems so deeply they can feel them in their bones."
+            <div style="text-align:right;color:var(--blue);font-style:italic;margin-top:8px;">— Security Protocol #0x1337</div>
+        </div>
+    </div>
+
+    <footer>&copy; Prashanna 2025</footer>
+
+    <script>
+        // Matrix background
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initMatrix();
+        });
+        
+        const letters = '0101010101010101010101010101010101';
+        const fontSize = 14;
+        let columns, drops = [];
+        
+        function initMatrix() {
+            columns = Math.floor(canvas.width/fontSize);
+            drops = [];
+            for(let i = 0; i < columns; i++) {
+                drops[i] = Math.random() * canvas.height/fontSize;
+            }
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+            
+            for(let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+                
+                if(drops[i]*fontSize > canvas.height && Math.random() > 0.98) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        
+        initMatrix();
+        setInterval(drawMatrix, 50);
+        
+        // Terminal input simulation
+        const commands = ['whoami', 'ls -la', 'cat /etc/passwd', 'sudo nmap -sS -p- localhost', 'exit'];
+        const responses = [
+            'prashanna',
+            'total 20\ndrwxr-xr-x  3 prashanna prashanna 4096 Mar 15 10:42 .\ndrwxr-xr-x 17 root root 4096 Mar 14 14:23 ..\n-rwxr-xr-x  1 prashanna prashanna 2483 Mar 15 09:15 launch_prashanna.sh',
+            'Permission denied',
+            'Starting Nmap 7.94 ( https://nmap.org )\nScanning localhost (127.0.0.1)',
+            'Connection closed.'
+        ];
+        
+        const termBody = document.getElementById('termBody');
+        const userInput = document.getElementById('userInput');
+        
+        let currentCmd = '';
+        let i = 0;
+        let commandIndex = 0;
+        
+        function typeCommand() {
+            if (i < commands[commandIndex].length) {
+                currentCmd += commands[commandIndex].charAt(i);
+                userInput.textContent = currentCmd;
+                i++;
+                setTimeout(typeCommand, Math.random() * 200 + 50);
+            } else {
+                setTimeout(executeCommand, 500);
+            }
+        }
+        
+        function executeCommand() {
+            // Remove cursor from input line
+            const inputLine = userInput.parentNode;
+            inputLine.innerHTML = inputLine.innerHTML.replace('<span id="userInput" class="cursor"></span>', currentCmd);
+            
+            // Add response
+            const responseLine = document.createElement('div');
+            responseLine.className = 'line';
+            responseLine.textContent = responses[commandIndex];
+            termBody.appendChild(responseLine);
+            
+            // Create new prompt line
+            const newLine = document.createElement('div');
+            newLine.className = 'line';
+            newLine.innerHTML = '<span class="prompt">prashanna@kali</span>:<span class="folder">~</span>$ <span id="userInput" class="cursor"></span>';
+            termBody.appendChild(newLine);
+            
+            // Update reference to new userInput span
+            userInput.removeAttribute('id');
+            userInput = termBody.querySelector('#userInput');
+            
+            // Scroll to bottom
+            termBody.scrollTop = termBody.scrollHeight;
+            
+            // Reset for next command
+            currentCmd = '';
+            i = 0;
+            commandIndex = (commandIndex + 1) % commands.length;
+            
+            setTimeout(typeCommand, 1000);
+        }
+        
+        setTimeout(typeCommand, 1500);
+    </script>
+</body>
+</html>
