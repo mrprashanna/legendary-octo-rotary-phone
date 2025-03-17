@@ -3,540 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domain Registration Letter Generator</title>
+    <title>Prashanna - Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
     <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --green: #00ff00;
+            --blue: #00f7ff;
+            --prompt: #729fcf;
+            --folder: #ad7fa8;
+            --cmd: #8ae234;
         }
-        
+        * {box-sizing: border-box; margin: 0; padding: 0;}
         body {
-            background: linear-gradient(to bottom right, #f0f4ff, #e6eeff);
-            min-height: 100vh;
+            background: #000;
+            color: var(--green);
+            font-family: 'Ubuntu Mono', monospace;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+        .cursor {content: "|"; animation: blink 1s step-end infinite;}
+        @keyframes blink {0%, 100% {opacity: 1;} 50% {opacity: 0;}}
+        
+        .glitch {animation: glitch 2s infinite;}
+        @keyframes glitch {
+            2%, 98% {transform: translate(2px, 0);}
+            4%, 96% {transform: translate(-2px, 0);}
         }
         
-        /* Header styles */
-        header {
-            background-color: white;
-            padding: 1.5rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        .matrix {
+            position: fixed;
+            top: 0; left: 0; z-index: -1;
+            opacity: 0.1;
+            width: 100%; height: 100%;
         }
         
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
+        .terminal {
+            margin: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .term-bar {
+            background: #300a24;
+            padding: 8px 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .controls span {
+            display: inline-block;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        
+        .red {background: #ff5f56;}
+        .yellow {background: #ffbd2e;}
+        .green {background: #27c93f;}
+        
+        .term-body {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 12px;
+            height: 200px;
+            overflow-y: auto;
+        }
+        
+        .line {margin-bottom: 8px;}
+        .prompt {color: var(--prompt);}
+        .folder {color: var(--folder);}
+        .cmd {color: var(--cmd);}
+        
+        .content {
+            padding: 1rem;
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         h1 {
-            color: #2d3748;
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: 1rem;
         }
         
-        h1 span {
-            color: #4361ee;
+        .status {
+            color: var(--blue);
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin: 1.5rem 0;
+            letter-spacing: 2px;
         }
         
-        .header-content p {
-            color: #718096;
-            margin-top: 0.5rem;
+        .quote {
+            margin: 1.5rem auto;
+            padding: 1rem;
+            border-left: 4px solid var(--blue);
+            background: rgba(0, 255, 0, 0.05);
+            text-align: left;
         }
         
-        /* Main content styles */
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        
-        /* Tab styles */
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-        
-        .tab-container {
-            background-color: white;
-            padding: 0.25rem;
-            border-radius: 9999px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-        }
-        
-        .tab {
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 1rem;
-        }
-        
-        .tab.active {
-            background-color: #4361ee;
-            color: white;
-        }
-        
-        .tab:not(.active) {
-            color: #718096;
-            background-color: transparent;
-        }
-        
-        .tab:not(.active):hover {
-            background-color: #e6eeff;
-        }
-        
-        /* Card styles */
-        .card {
-            background-color: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        /* Form styles */
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
+        footer {
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(0, 255, 0, 0.2);
         }
         
         @media (min-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        
-        .form-section h2 {
-            color: #2d3748;
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-        
-        label {
-            display: block;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #4a5568;
-            margin-bottom: 0.25rem;
-        }
-        
-        input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #cbd5e0;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        input:focus {
-            outline: none;
-            border-color: #4361ee;
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
-        }
-        
-        .domain-input {
-            display: flex;
-        }
-        
-        .domain-input input {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-        
-        .domain-input span {
-            display: flex;
-            align-items: center;
-            padding: 0 1rem;
-            background-color: #e6eeff;
-            border: 1px solid #cbd5e0;
-            border-left: none;
-            border-top-right-radius: 0.5rem;
-            border-bottom-right-radius: 0.5rem;
-            color: #4361ee;
-            font-weight: 500;
-        }
-        
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-        
-        .button {
-            background-color: #4361ee;
-            color: white;
-            padding: 0.75rem 2rem;
-            border: none;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(67, 97, 238, 0.3);
-        }
-        
-        .button:hover {
-            background-color: #3a56d4;
-            transform: translateY(-2px);
-        }
-        
-        .button.secondary {
-            background-color: #4a5568;
-        }
-        
-        .button.secondary:hover {
-            background-color: #2d3748;
-        }
-        
-        /* Letter preview styles */
-        .letter-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        
-        .preview-container {
-            background-color: white;
-            padding: 2rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.5rem;
-            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .letter-content {
-            margin-top: 2rem;
-        }
-        
-        .letter-content p {
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-        
-        .letter-subject {
-            text-align: center;
-            margin: 2.5rem 0;
-            font-weight: 600;
-            font-size: 1.125rem;
-        }
-        
-        .letter-signature {
-            margin-top: 2.5rem;
-        }
-        
-        /* Info box styles */
-        .info-box {
-            background-color: #ebf5ff;
-            border-left: 4px solid #4361ee;
-            padding: 1.25rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .info-box h3 {
-            color: #1e3a8a;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-        
-        .info-box ol {
-            margin-left: 1.25rem;
-            color: #4a5568;
-        }
-        
-        .info-box li {
-            margin-bottom: 0.25rem;
-        }
-        
-        /* Footer styles */
-        footer {
-            background-color: #2d3748;
-            color: white;
-            padding: 1.5rem 0;
-            margin-top: 3rem;
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        footer p:last-child {
-            color: #cbd5e0;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-        }
-        
-        /* Hide sections based on active tab */
-        .form-section, .preview-section {
-            display: none;
-        }
-        
-        .form-section.active, .preview-section.active {
-            display: block;
-        }
-        
-        /* Print styles */
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-            
-            .preview-container, .preview-container * {
-                visibility: visible;
-            }
-            
-            .preview-container {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                box-shadow: none;
-                border: none;
-            }
-            
-            .button {
-                display: none;
-            }
+            .terminal {margin: 2rem auto; max-width: 80%;}
+            .term-body {height: 250px;}
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <h1>.com.np <span>Domain Registration</span> Letter Generator</h1>
-            <p>Create professional domain registration cover letters in seconds</p>
-        </div>
-    </header>
+    <canvas class="matrix" id="matrix"></canvas>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Tabs -->
-        <div class="tabs">
-            <div class="tab-container">
-                <button class="tab active" id="form-tab">Fill Details</button>
-                <button class="tab" id="preview-tab">Preview Letter</button>
+    <div class="terminal">
+        <div class="term-bar">
+            <div class="controls">
+                <span class="red"></span>
+                <span class="yellow"></span>
+                <span class="green"></span>
+            </div>
+            <div>prashanna@kali:~</div>
+        </div>
+        
+        <div class="term-body" id="termBody">
+            <div class="line">
+                <span class="prompt">prashanna@kali</span>:<span class="folder">~</span>$ <span class="cmd">./launch_prashanna.sh</span>
+            </div>
+            <div class="line">Initializing Prashanna platform...</div>
+            <div class="line">
+                <span class="prompt">prashanna@kali</span>:<span class="folder">~</span>$ <span id="userInput" class="cursor"></span>
             </div>
         </div>
+    </div>
 
-        <!-- Form Section -->
-        <div class="form-section active" id="form-section">
-            <div class="card">
-                <div class="form-grid">
-                    <!-- Personal Information -->
-                    <div class="form-section-content">
-                        <h2>Personal Information</h2>
-                        <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" id="fullName" placeholder="Enter your full name">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="you@example.com">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="mobile">Mobile Number</label>
-                            <input type="text" id="mobile" placeholder="98XXXXXXXX">
-                        </div>
-                    </div>
-                    
-                    <!-- Domain Information -->
-                    <div class="form-section-content">
-                        <h2>Domain Details</h2>
-                        <div class="form-group">
-                            <label for="domain">Domain Name</label>
-                            <div class="domain-input">
-                                <input type="text" id="domain" placeholder="yourdomain">
-                                <span>.com.np</span>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="date">Date</label>
-                            <input type="date" id="date">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="button-container">
-                    <button class="button" id="preview-button">Preview Letter</button>
-                </div>
-            </div>
+    <div class="content">
+        <h1>// SYSTEM STATUS: INITIALIZING</h1>
+        <p>> Deploying security measures...</p>
+        <p>> Scanning network perimeter...</p>
+        
+        <div class="status glitch">COMING SOON</div>
+        
+        <div class="quote">
+            "The best hackers don't find vulnerabilities, they understand systems so deeply they can feel them in their bones."
+            <div style="text-align:right;color:var(--blue);font-style:italic;margin-top:8px;">— Security Protocol #0x1337</div>
         </div>
+    </div>
 
-        <!-- Preview Section -->
-        <div class="preview-section" id="preview-section">
-            <div class="card">
-                <div class="letter-header">
-                    <h2>Your Cover Letter</h2>
-                    <button class="button" id="print-button">Print Letter</button>
-                </div>
+    <footer>&copy; Prashanna 2025</footer>
 
-                <div class="preview-container" id="preview-container">
-                    <div class="letter-header-content">
-                        <div>
-                            <p><strong>The HostMaster</strong></p>
-                            <p>NP ccTLD Registration Services</p>
-                            <p>Mercantile Communications Pvt. Ltd.</p>
-                            <p>Email: hostmaster@mercantile.com.np</p>
-                        </div>
-                        <div style="text-align: right;">
-                            <p><strong id="preview-name">[Your Name]</strong></p>
-                            <p>Email: <span id="preview-email">your-email@example.com</span></p>
-                            <p>Mobile: <span id="preview-mobile">98XXXXXXXX</span></p>
-                            <p id="preview-date">Sun Mar 16 2025</p>
-                        </div>
-                    </div>
-                    
-                    <div class="letter-subject">
-                        Subject: Application for <span id="preview-domain">yourdomain</span>.com.np domain registration
-                    </div>
-                    
-                    <div class="letter-content">
-                        <p>Dear Sir/Madam,</p>
-                        <p>
-                            I am writing to request the registration of domain under my name <span id="preview-name2">[Your Name]</span> with domain <span id="preview-domain2">yourdomain</span>.com.np.
-                        </p>
-                        
-                        <p>
-                            Applying for registration of the domain <span id="preview-domain3">yourdomain</span>.com.np follows all the term and conditions of Domain registration residing at "https://register.com.np/terms-and-conditions". I submit the required for the domain registrations as per the rule.
-                        </p>
-                        
-                        <p>
-                            Thank you for "helping the industry and civil society to make them online". Entry area for .com.np is "commercial" and Notes is "open ccTLD, any person or entity is permitted to register" as mentioned on "https://register.com.np/np-ccTLDs".
-                        </p>
-                        
-                        <p>
-                            I would be very grateful indeed for your help. Needless to say, I will be glad to supply you with any further information you may need. I look forward to hearing from you soon.
-                        </p>
-                        
-                        <div class="letter-signature">
-                            <p>Your Sincerely,</p>
-                            <p><strong id="preview-name3">[Your Name]</strong></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="button-container">
-                    <button class="button secondary" id="edit-button">Edit Details</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Information Box -->
-        <div class="info-box">
-            <h3>How to use this tool:</h3>
-            <ol>
-                <li>Fill in your personal details and domain information</li>
-                <li>Preview the generated letter and make any necessary changes</li>
-                <li>Print or save the letter as PDF using the Print button</li>
-                <li>Submit your letter to NP ccTLD Registration Services</li>
-            </ol>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>© 2025 Domain Registration Letter Generator. All rights reserved.</p>
-            <p>This tool is designed to help Nepali users create cover letters for .com.np domain registration.</p>
-
-            <script>
-                // Tab Switching
-                const formTab = document.getElementById('form-tab');
-                const previewTab = document.getElementById('preview-tab');
-                const formSection = document.getElementById('form-section');
-                const previewSection = document.getElementById('preview-section');
+    <script>
+        // Matrix background
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initMatrix();
+        });
+        
+        const letters = '0101010101010101010101010101010101';
+        const fontSize = 14;
+        let columns, drops = [];
+        
+        function initMatrix() {
+            columns = Math.floor(canvas.width/fontSize);
+            drops = [];
+            for(let i = 0; i < columns; i++) {
+                drops[i] = Math.random() * canvas.height/fontSize;
+            }
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
             
-                formTab.addEventListener('click', () => switchTab('form'));
-                previewTab.addEventListener('click', () => switchTab('preview'));
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
             
-                function switchTab(tab) {
-                    if (tab === 'form') {
-                        formTab.classList.add('active');
-                        previewTab.classList.remove('active');
-                        formSection.classList.add('active');
-                        previewSection.classList.remove('active');
-                    } else {
-                        previewTab.classList.add('active');
-                        formTab.classList.remove('active');
-                        previewSection.classList.add('active');
-                        formSection.classList.remove('active');
-                    }
+            for(let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+                
+                if(drops[i]*fontSize > canvas.height && Math.random() > 0.98) {
+                    drops[i] = 0;
                 }
+                drops[i]++;
+            }
+        }
+        
+        initMatrix();
+        setInterval(drawMatrix, 50);
+        
+        // Terminal input simulation
+        const commands = ['whoami', 'ls -la', 'cat /etc/passwd', 'sudo nmap -sS -p- localhost', 'exit'];
+        const responses = [
+            'prashanna',
+            'total 20\ndrwxr-xr-x  3 prashanna prashanna 4096 Mar 15 10:42 .\ndrwxr-xr-x 17 root root 4096 Mar 14 14:23 ..\n-rwxr-xr-x  1 prashanna prashanna 2483 Mar 15 09:15 launch_prashanna.sh',
+            'Permission denied',
+            'Starting Nmap 7.94 ( https://nmap.org )\nScanning localhost (127.0.0.1)',
+            'Connection closed.'
+        ];
+        
+        const termBody = document.getElementById('termBody');
+        const userInput = document.getElementById('userInput');
+        
+        let currentCmd = '';
+        let i = 0;
+        let commandIndex = 0;
+        
+        function typeCommand() {
+            if (i < commands[commandIndex].length) {
+                currentCmd += commands[commandIndex].charAt(i);
+                userInput.textContent = currentCmd;
+                i++;
+                setTimeout(typeCommand, Math.random() * 200 + 50);
+            } else {
+                setTimeout(executeCommand, 500);
+            }
+        }
+        
+        function executeCommand() {
+            // Remove cursor from input line
+            const inputLine = userInput.parentNode;
+            inputLine.innerHTML = inputLine.innerHTML.replace('<span id="userInput" class="cursor"></span>', currentCmd);
             
-                // Form Input Handling
-                const formFields = {
-                    fullName: document.getElementById('fullName'),
-                    email: document.getElementById('email'),
-                    mobile: document.getElementById('mobile'),
-                    domain: document.getElementById('domain'),
-                    date: document.getElementById('date')
-                };
+            // Add response
+            const responseLine = document.createElement('div');
+            responseLine.className = 'line';
+            responseLine.textContent = responses[commandIndex];
+            termBody.appendChild(responseLine);
             
-                // Set default date to today
-                formFields.date.value = new Date().toISOString().split('T')[0];
+            // Create new prompt line
+            const newLine = document.createElement('div');
+            newLine.className = 'line';
+            newLine.innerHTML = '<span class="prompt">prashanna@kali</span>:<span class="folder">~</span>$ <span id="userInput" class="cursor"></span>';
+            termBody.appendChild(newLine);
             
-                // Add input event listeners
-                Object.keys(formFields).forEach(field => {
-                    formFields[field].addEventListener('input', updatePreview);
-                });
+            // Update reference to new userInput span
+            userInput.removeAttribute('id');
+            userInput = termBody.querySelector('#userInput');
             
-                function updatePreview() {
-                    // Update personal information
-                    document.querySelectorAll('#preview-name, #preview-name2, #preview-name3').forEach(el => {
-                        el.textContent = formFields.fullName.value || '[Your Name]';
-                    });
-                    
-                    // Update contact information
-                    document.getElementById('preview-email').textContent = formFields.email.value || 'your-email@example.com';
-                    document.getElementById('preview-mobile').textContent = formFields.mobile.value || '98XXXXXXXX';
-                    
-                    // Update domain information
-                    document.querySelectorAll('#preview-domain, #preview-domain2, #preview-domain3').forEach(el => {
-                        el.textContent = formFields.domain.value || 'yourdomain';
-                    });
-                    
-                    // Update date
-                    const date = new Date(formFields.date.value);
-                    document.getElementById('preview-date').textContent = date.toDateString();
-                }
+            // Scroll to bottom
+            termBody.scrollTop = termBody.scrollHeight;
             
-                // Button Handlers
-                document.getElementById('preview-button').addEventListener('click', () => {
-                    updatePreview();
-                    switchTab('preview');
-                });
+            // Reset for next command
+            currentCmd = '';
+            i = 0;
+            commandIndex = (commandIndex + 1) % commands.length;
             
-                document.getElementById('edit-button').addEventListener('click', () => {
-                    switchTab('form');
-                });
-            
-                document.getElementById('print-button').addEventListener('click', () => {
-                    window.print();
-                });
-            
-                // Initial preview update
-                updatePreview();
-            </script>
-            </body>
-            </html>
+            setTimeout(typeCommand, 1000);
+        }
+        
+        setTimeout(typeCommand, 1500);
+    </script>
+</body>
+</html>
