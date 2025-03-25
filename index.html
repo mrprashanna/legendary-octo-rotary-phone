@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prashanna - Coming Soon</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #2c3e50;
+        }
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.5;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            background: rgba(255,255,255,0.7);
+        }
+        #logo {
+            font-size: 4.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            opacity: 0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+        #tagline {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            max-width: 800px;
+            color: #34495e;
+            line-height: 1.4;
+            opacity: 0;
+        }
+        .quote {
+            font-size: 1.2rem;
+            font-weight: 300;
+            font-style: italic;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin-bottom: 30px;
+            opacity: 0;
+        }
+        .email-container {
+            display: flex;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 50px;
+            overflow: hidden;
+            opacity: 0;
+        }
+        #email-input {
+            flex-grow: 1;
+            padding: 15px 25px;
+            font-size: 1rem;
+            border: none;
+            background: #fff;
+            color: #2c3e50;
+            outline: none;
+        }
+        #notify-btn {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        #notify-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            gap: 30px;
+            opacity: 0;
+        }
+        .social-link {
+            font-size: 2rem;
+            color: #34495e;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        .social-link:hover {
+            opacity: 1;
+            transform: translateY(-10px);
+        }
+        .error-message {
+            color: #e74c3c;
+            margin-top: 10px;
+            font-weight: 300;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="background"></div>
+    <div class="overlay">
+        <div id="logo">Prashanna</div>
+        <div id="tagline">Transforming Possibilities, Redefining Potential</div>
+        <div class="quote">"Innovation is not just about creating something new, it's about reimagining what's possible and challenging the boundaries of today to create the extraordinary of tomorrow."</div>
+        
+        <div class="email-container">
+            <input type="email" id="email-input" placeholder="Enter your email address">
+            <button id="notify-btn">Notify Me</button>
+        </div>
+        <div id="error-message" class="error-message"></div>
+        
+        <div class="social-links">
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                </svg>
+            </a>
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // 3D Background with Three.js
+        let scene, camera, renderer, particles;
+
+        function initThreeJS() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('background').appendChild(renderer.domElement);
+
+            // Create soft, light-colored particle system
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 3000;
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for (let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 200;
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.003,
+                color: 0x6a11cb,
+                transparent: true,
+                opacity: 0.3
+            });
+
+            particles = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particles);
+
+            camera.position.z = 10;
+        }
+
+        function animateParticles() {
+            requestAnimationFrame(animateParticles);
+            
+            particles.rotation.x += 0.0003;
+            particles.rotation.y += 0.0005;
+            
+            renderer.render(scene, camera);
+        }
+
+        // GSAP Animations
+        function initAnimations() {
+            if (window.gsap) {
+                // Logo Animation
+                gsap.fromTo("#logo", 
+                    { opacity: 0, scale: 0.5 }, 
+                    { 
+                        opacity: 1, 
+                        scale: 1, 
+                        duration: 1.2, 
+                        ease: "elastic.out(1, 0.3)"
+                    }
+                );
+
+                // Tagline Animation
+                gsap.fromTo("#tagline", 
+                    { opacity: 0, y: 50 }, 
+                    { 
+                        opacity: 1, 
+                        y: 0, 
+                        duration: 1, 
+                        delay: 0.5, 
+                        ease: "power3.out" 
+                    }
+                );
+
+                // Quote Animation
+                gsap.fromTo(".quote", 
+                    { opacity: 0, y: 50 }, 
+                    { 
+                        opacity: 1, 
+                        y: 0, 
+                        duration: 1, 
+                        delay: 0.7, 
+                        ease: "power3.out" 
+                    }
+                );
+
+                // Email Container Animation
+                gsap.fromTo(".email-container", 
+                    { opacity: 0, y: 50 }, 
+                    { 
+                        opacity: 1, 
+                        y: 0, 
+                        duration: 1, 
+                        delay: 1, 
+                        ease: "back.out(1.7)" 
+                    }
+                );
+
+                // Social Links Animation
+                gsap.fromTo(".social-links", 
+                    { opacity: 0, y: 50 }, 
+                    { 
+                        opacity: 1, 
+                        y: 0, 
+                        duration: 1, 
+                        delay: 1.5, 
+                        ease: "power3.out",
+                        stagger: 0.2 
+                    }
+                );
+            }
+        }
+
+        // Email Validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        // Event Listeners
+        document.getElementById('notify-btn').addEventListener('click', () => {
+            const emailInput = document.getElementById('email-input');
+            const errorMessage = document.getElementById('error-message');
+            const email = emailInput.value.trim();
+
+            if (!email) {
+                errorMessage.textContent = "Please enter an email address";
+                gsap.to(errorMessage, { opacity: 1, duration: 0.5 });
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                errorMessage.textContent = "Please enter a valid email address";
+                gsap.to(errorMessage, { opacity: 1, duration: 0.5 });
+                return;
+            }
+
+            // Success animation
+            gsap.to(errorMessage, { opacity: 0, duration: 0.5 });
+            errorMessage.textContent = "";
+            
+            // Simulate submission
+            emailInput.value = '';
+            alert('Thank you! We will notify you soon.');
+        });
+
+        // Resize Handler
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Initialize Everything
+        initThreeJS();
+        animateParticles();
+        initAnimations();
+    </script>
+</body>
+</html>
