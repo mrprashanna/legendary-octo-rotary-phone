@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category | capitalize }} - Prashanna Shrestha News{% endblock %}
+
+{% from "components/ads.html" import header_ad, sidebar_ad %}
+
+{% block content %}
+<!-- Display Header Ad if available -->
+{% if header_ads %}
+    {{ header_ad(header_ads[0]) }}
+{% endif %}
+
+<!-- Category Header -->
+<div class="category-header mb-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ category | capitalize }}</li>
+        </ol>
+    </nav>
+    
+    <div class="category-banner p-4 bg-light rounded mb-4">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="display-5">
+                    {% if category == 'politics' %}
+                    <i class="fas fa-landmark me-2 text-primary"></i>
+                    {% elif category == 'technology' %}
+                    <i class="fas fa-microchip me-2 text-primary"></i>
+                    {% elif category == 'sports' %}
+                    <i class="fas fa-running me-2 text-primary"></i>
+                    {% else %}
+                    <i class="fas fa-newspaper me-2 text-primary"></i>
+                    {% endif %}
+                    {{ category | capitalize }} News
+                </h1>
+                <p class="lead">
+                    {% if category == 'politics' %}
+                    Stay informed about the latest political developments, elections, and government policies.
+                    {% elif category == 'technology' %}
+                    Explore cutting-edge innovations, digital trends, and tech industry news.
+                    {% elif category == 'sports' %}
+                    Get updates on sporting events, athlete achievements, and team performances.
+                    {% else %}
+                    Latest news and articles in the {{ category }} category.
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-md-4 text-end d-none d-md-block">
+                {% if category == 'politics' %}
+                <i class="fas fa-landmark fa-5x text-black-50"></i>
+                {% elif category == 'technology' %}
+                <i class="fas fa-microchip fa-5x text-black-50"></i>
+                {% elif category == 'sports' %}
+                <i class="fas fa-running fa-5x text-black-50"></i>
+                {% else %}
+                <i class="fas fa-newspaper fa-5x text-black-50"></i>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content Area -->
+<div class="row mt-4">
+    <!-- Articles List -->
+    <div class="col-md-8">
+        <h2 class="mb-4"><i class="fas fa-newspaper me-2"></i>{{ category | capitalize }} Articles</h2>
+        
+        {% if articles %}
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for article in articles %}
+    <div class="col">
+        <div class="card h-100 shadow-sm hover-card">
+            {% if article.image_url %}
+            <img src="{{ article.image_url }}" class="card-img-top article-img" alt="{{ article.title }}">
+            {% else %}
+            <div class="card-img-top article-img-placeholder d-flex align-items-center justify-content-center bg-light">
+                <i class="fas fa-newspaper fa-3x text-secondary"></i>
+            </div>
+            {% endif %}
+            <div class="card-body">
+                
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="badge bg-primary">{{ category | capitalize }}</span>
+                    <small class="text-muted"><i class="far fa-calendar-alt me-1"></i>{{ article.created_at.strftime('%b %d, %Y') }}</small>
+                </div>
+                <h5 class="card-title">{{ article.title }}</h5>
+                <p class="card-text">{{ article.content[:150] }}{% if article.content|length > 150 %}...{% endif %}</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0">
+                <a href="{{ url_for('article', id=article.id) }}" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-book-reader me-1"></i>Read More
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>No articles available in the {{ category | capitalize }} category at the moment. Please check back later.
+        </div>
+        {% endif %}
+    </div>
+    
+    <!-- Sidebar with Ads -->
+    <div class="col-md-4">
+        {% if sidebar_ads %}
+            {% for ad in sidebar_ads %}
+                {{ sidebar_ad(ad) }}
+            {% endfor %}
+        {% endif %}
+        
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <i class="fas fa-tags me-2"></i>Other Categories
+            </div>
+            <div class="list-group list-group-flush">
+                {% if category != 'politics' %}
+                <a href="{{ url_for('category', category='politics') }}" class="list-group-item list-group-item-action">
+                    <i class="fas fa-landmark me-2"></i>Politics
+                </a>
+                {% endif %}
+                {% if category != 'technology' %}
+                <a href="{{ url_for('category', category='technology') }}" class="list-group-item list-group-item-action">
+                    <i class="fas fa-microchip me-2"></i>Technology
+                </a>
+                {% endif %}
+                {% if category != 'sports' %}
+                <a href="{{ url_for('category', category='sports') }}" class="list-group-item list-group-item-action">
+                    <i class="fas fa-futbol me-2"></i>Sports
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

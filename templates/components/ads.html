@@ -1,0 +1,40 @@
+{% macro sidebar_ad(ad) -%}
+<div class="card shadow-sm mb-4 ad-card">
+    <div class="card-header bg-light d-flex justify-content-between align-items-center">
+        <small><i class="fas fa-ad me-1"></i>Advertisement</small>
+        <small class="text-muted">{{ ad.title }}</small>
+    </div>
+    <div class="card-body p-2 text-center">
+        <a href="{{ ad.link_url }}" target="_blank" rel="noopener noreferrer">
+            <img src="{{ ad.image_url }}" class="img-fluid rounded" alt="{{ ad.title }}">
+        </a>
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro header_ad(ad) -%}
+<div class="container mt-2 mb-4">
+    <div class="header-ad text-center">
+        <a href="{{ ad.link_url }}" target="_blank" rel="noopener noreferrer">
+            <img src="{{ ad.image_url }}" class="img-fluid rounded" alt="{{ ad.title }}">
+        </a>
+        <div class="text-muted small">
+            <i class="fas fa-ad me-1"></i>Advertisement
+        </div>
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro article_ad(ad) -%}
+<div class="article-ad my-4 p-2 border rounded bg-light">
+    <div class="text-muted small mb-1 d-flex justify-content-between">
+        <span><i class="fas fa-ad me-1"></i>Advertisement</span>
+        <span>{{ ad.title }}</span>
+    </div>
+    <div class="text-center">
+        <a href="{{ ad.link_url }}" target="_blank" rel="noopener noreferrer">
+            <img src="{{ ad.image_url }}" class="img-fluid rounded" alt="{{ ad.title }}">
+        </a>
+    </div>
+</div>
+{%- endmacro %}
