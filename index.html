@@ -6,21 +6,20 @@
     <title>Prashanna Shrestha | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         /* CSS Reset & Root Variables */
         :root {
-            --bg-color: #1a1a2e; /* Deep purple/blue */
-            --primary-color: #e94560; /* Bold accent red */
-            --secondary-color: #537a5a; /* A complementary green */
-            --text-color: #e4e4e4;
-            --text-dark: #121212;
-            --card-bg: rgba(255, 255, 255, 0.08);
-            --border-color: rgba(255, 255, 255, 0.15);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            --font-main: 'Poppins', sans-serif;
-            --font-headings: 'Montserrat', sans-serif;
+            --bg-color: #2c2040; /* Muted deep purple */
+            --primary-color: #c3a0e6; /* Soft lavender */
+            --accent-color: #e6c88f; /* Warm gold */
+            --text-color: #e0e0e0;
+            --text-dark: #1f1a26;
+            --card-bg: #3c2f52; /* Slightly lighter purple for cards */
+            --border-color: #4c3f64;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            --font-main: 'Inter', sans-serif;
         }
 
         * {
@@ -43,29 +42,29 @@
 
         /* --- Global Styles --- */
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         h1, h2, h3 {
-            font-family: var(--font-headings);
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1rem;
+            color: var(--primary-color);
         }
 
-        h1 { font-size: 3.5rem; color: var(--text-color); }
-        h2 { font-size: 2.5rem; color: var(--primary-color); text-align: center; margin-bottom: 3rem; }
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; }
         p { margin-bottom: 1rem; }
 
         .btn {
             display: inline-block;
             padding: 0.9rem 2.5rem;
             background: var(--primary-color);
-            color: #fff;
+            color: var(--text-dark);
             border: none;
-            border-radius: 50px;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -75,9 +74,9 @@
         }
 
         .btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
         section {
@@ -87,16 +86,15 @@
         /* --- Card Style --- */
         .card {
             background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
             padding: 2.5rem;
-            box-shadow: var(--shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
         
         /* --- Header & Navigation --- */
@@ -107,9 +105,7 @@
             left: 0;
             z-index: 1000;
             padding: 1.5rem 0;
-            background: rgba(26, 26, 46, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(44, 32, 64, 0.9);
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -128,7 +124,7 @@
         }
 
         .navbar .logo span {
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
         .nav-links {
@@ -140,27 +136,13 @@
         .nav-links a {
             color: var(--text-color);
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 500;
             position: relative;
-            padding-bottom: 5px;
             transition: color 0.3s;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
+        .nav-links a:hover {
+            color: var(--accent-color);
         }
         
         .hamburger {
@@ -176,71 +158,60 @@
             text-align: center;
             padding-top: 80px;
             position: relative;
-            overflow: hidden;
-            background-image: linear-gradient(135deg, var(--bg-color) 0%, #100f1c 100%);
         }
 
         .hero-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
             z-index: 2;
         }
         
         .profile-pic-container {
             margin-bottom: 2rem;
-            position: relative;
         }
 
         #profile-pic {
-            width: 220px;
-            height: 220px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            border: 6px solid var(--primary-color);
-            box-shadow: 0 0 30px rgba(233, 69, 96, 0.6);
-            transition: all 0.4s ease-in-out;
+            border: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
         }
         
         #profile-pic:hover {
-            transform: scale(1.05) rotate(5deg);
-            box-shadow: 0 0 40px rgba(233, 69, 96, 0.8);
+            transform: scale(1.05);
+            border-color: var(--accent-color);
         }
 
         #hero h1 {
             font-size: 4rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: var(--text-color);
         }
         
         .job-title {
-            font-size: 1.7rem;
-            font-weight: 300;
+            font-size: 1.5rem;
+            font-weight: 400;
             margin-bottom: 2.5rem;
-            color: var(--text-color);
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            color: var(--primary-color);
         }
         
-        .job-title strong {
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
         .social-links-hero {
             margin-top: 1.5rem;
         }
         
         .social-links-hero a {
             color: var(--text-color);
-            font-size: 2rem;
-            margin: 0 1.2rem;
-            transition: color 0.3s, transform 0.3s;
+            font-size: 1.8rem;
+            margin: 0 1rem;
+            transition: color 0.3s;
         }
         
         .social-links-hero a:hover {
             color: var(--primary-color);
-            transform: translateY(-5px);
         }
 
         /* --- About Section --- */
@@ -253,35 +224,32 @@
         
         #about img {
             max-width: 100%;
-            border-radius: 20px;
+            border-radius: 8px;
             box-shadow: var(--shadow);
-            border: 3px solid var(--primary-color);
         }
 
         /* --- Philosophy Section --- */
         #philosophy .philosophy-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         #philosophy .card blockquote {
-            font-size: 1.15rem;
+            font-size: 1rem;
             font-style: italic;
-            border-left: 4px solid var(--primary-color);
+            border-left: 3px solid var(--accent-color);
             padding-left: 1.5rem;
             margin: 0;
-            position: relative;
             color: var(--text-color);
         }
         
         #philosophy .card p.author {
             text-align: right;
             margin-top: 1rem;
-            font-weight: bold;
-            color: var(--secondary-color);
+            font-weight: 500;
+            color: var(--primary-color);
             font-size: 0.9rem;
-            text-transform: uppercase;
         }
 
         /* --- Projects Section --- */
@@ -304,25 +272,26 @@
         }
         
         .project-card .project-links a {
-            color: var(--secondary-color);
+            color: var(--accent-color);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
             transition: color 0.3s;
         }
         
         .project-card .project-links a:hover {
-            color: var(--text-color);
+            color: var(--primary-color);
         }
         
         /* --- Contact Section --- */
         #contact {
             text-align: center;
-            background-color: #12121e;
+            background-color: #241a30;
         }
         
         #contact .card {
             max-width: 600px;
             margin: 2rem auto;
+            background: var(--card-bg);
         }
         
         #contact-form {
@@ -334,9 +303,9 @@
         #contact-form input, #contact-form textarea {
             width: 100%;
             padding: 1.2rem;
-            border-radius: 12px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--card-bg);
             color: var(--text-color);
             font-family: var(--font-main);
             font-size: 1rem;
@@ -359,26 +328,25 @@
         
         .contact-social-links a {
             color: var(--text-color);
-            font-size: 2.2rem;
-            transition: color 0.3s, transform 0.3s;
+            font-size: 2rem;
+            transition: color 0.3s;
         }
         
         .contact-social-links a:hover {
             color: var(--primary-color);
-            transform: translateY(-5px);
         }
 
         /* --- Footer --- */
         footer {
             text-align: center;
             padding: 2.5rem 0;
-            background: #12121e;
+            background: #241a30;
             border-top: 1px solid var(--border-color);
         }
 
         /* --- Responsive Design --- */
         @media(max-width: 768px) {
-            h1 { font-size: 3rem; }
+            h1 { font-size: 2.5rem; }
             h2 { font-size: 2rem; }
 
             .navbar .nav-links {
@@ -386,8 +354,7 @@
                 left: -100%;
                 top: 5rem;
                 flex-direction: column;
-                background-color: rgba(26, 26, 46, 0.95);
-                backdrop-filter: blur(10px);
+                background-color: rgba(44, 32, 64, 0.95);
                 width: 100%;
                 text-align: center;
                 transition: 0.5s;
@@ -399,7 +366,7 @@
             }
 
             .nav-links li {
-                margin: 2rem 0;
+                margin: 1.5rem 0;
             }
             
             .hamburger {
@@ -455,7 +422,7 @@
                 <img src="my-photo.jpg" alt="Prashanna Shrestha" id="profile-pic">
             </div>
             <h1>Prashanna Shrestha</h1>
-            <p class="job-title">A <strong>Naughty</strong> Problem Solver</p>
+            <p class="job-title">A **Mischievous** Problem Solver</p>
             <a href="#projects" class="btn">View My Work</a>
             <div class="social-links-hero">
                 <a href="https://github.com/mrprashanna" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -550,7 +517,7 @@
             <p>Have a project, a question, or a great joke? I'd love to hear from you.</p>
             <div class="card">
                 <p>You can reach me directly at:</p>
-                <h3><a href="mailto:prashannas@proton.me" style="color: var(--primary-color); text-decoration: none;">prashannas@proton.me</a></h3>
+                <h3><a href="mailto:prashannas@proton.me" style="color: var(--accent-color); text-decoration: none;">prashannas@proton.me</a></h3>
             </div>
 
             <div class="contact-social-links">
