@@ -6,20 +6,21 @@
     <title>Prashanna Shrestha | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         /* CSS Reset & Root Variables */
         :root {
-            --bg-gradient: linear-gradient(135deg, #232526, #414345);
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #e91e63;
-            --text-color: #e0e0e0;
-            --text-dark: #333;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --card-border: rgba(255, 255, 255, 0.2);
-            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            --bg-color: #1a1a2e; /* Deep purple/blue */
+            --primary-color: #e94560; /* Bold accent red */
+            --secondary-color: #537a5a; /* A complementary green */
+            --text-color: #e4e4e4;
+            --text-dark: #121212;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --border-color: rgba(255, 255, 255, 0.15);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --font-main: 'Poppins', sans-serif;
+            --font-headings: 'Montserrat', sans-serif;
         }
 
         * {
@@ -33,8 +34,8 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-gradient);
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
             color: var(--text-color);
             overflow-x: hidden;
             line-height: 1.6;
@@ -42,24 +43,25 @@
 
         /* --- Global Styles --- */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        h1, h2 {
-            font-weight: 600;
+        h1, h2, h3 {
+            font-family: var(--font-headings);
+            font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1rem;
         }
 
-        h1 { font-size: 3rem; }
-        h2 { font-size: 2.5rem; color: var(--primary-color); }
+        h1 { font-size: 3.5rem; color: var(--text-color); }
+        h2 { font-size: 2.5rem; color: var(--primary-color); text-align: center; margin-bottom: 3rem; }
         p { margin-bottom: 1rem; }
 
         .btn {
             display: inline-block;
-            padding: 0.8rem 2rem;
+            padding: 0.9rem 2.5rem;
             background: var(--primary-color);
             color: #fff;
             border: none;
@@ -67,35 +69,36 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: var(--shadow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
             background: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
         section {
             padding: 6rem 0;
         }
 
-        /* --- Glassmorphism Card Style --- */
+        /* --- Card Style --- */
         .card {
             background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid var(--card-border);
-            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
             box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
-
+        
         /* --- Header & Navigation --- */
         .navbar {
             position: fixed;
@@ -103,11 +106,11 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            padding: 1rem 0;
-            background: rgba(20, 20, 20, 0.3);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--card-border);
+            padding: 1.5rem 0;
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .navbar .container {
@@ -117,24 +120,21 @@
         }
         
         .navbar .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--text-color);
             text-decoration: none;
+            letter-spacing: 2px;
         }
 
         .navbar .logo span {
-            color: var(--accent-color);
-            cursor: pointer;
+            color: var(--primary-color);
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
@@ -143,211 +143,207 @@
             font-weight: 400;
             position: relative;
             padding-bottom: 5px;
+            transition: color 0.3s;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
             width: 0;
             height: 2px;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
         
         .hamburger {
             display: none;
-            cursor: pointer;
         }
-
-        .hamburger .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            background-color: var(--text-color);
-            transition: all 0.3s ease-in-out;
-        }
-
 
         /* --- Hero Section --- */
         #hero {
             height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            padding-top: 80px; /* Offset for fixed navbar */
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+            background-image: linear-gradient(135deg, var(--bg-color) 0%, #100f1c 100%);
         }
 
         .hero-content {
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
         
         .profile-pic-container {
+            margin-bottom: 2rem;
             position: relative;
-            margin-bottom: 1.5rem;
         }
 
         #profile-pic {
-            width: 180px;
-            height: 180px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
-            border: 5px solid var(--primary-color);
-            box-shadow: 0 0 20px var(--primary-color);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            border: 6px solid var(--primary-color);
+            box-shadow: 0 0 30px rgba(233, 69, 96, 0.6);
+            transition: all 0.4s ease-in-out;
         }
         
         #profile-pic:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px var(--secondary-color);
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 0 40px rgba(233, 69, 96, 0.8);
         }
 
         #hero h1 {
-            margin-bottom: 0.5rem;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         .job-title {
-            font-size: 1.5rem;
+            font-size: 1.7rem;
             font-weight: 300;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
             color: var(--text-color);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
         
-        .job-title #job-title-text {
-            color: var(--accent-color);
-            font-weight: 600;
-            cursor: pointer;
-            border-bottom: 2px dotted var(--accent-color);
+        .job-title strong {
+            color: var(--primary-color);
+            font-weight: 700;
         }
 
+        .social-links-hero {
+            margin-top: 1.5rem;
+        }
+        
         .social-links-hero a {
             color: var(--text-color);
-            font-size: 1.8rem;
-            margin: 0 1rem;
+            font-size: 2rem;
+            margin: 0 1.2rem;
             transition: color 0.3s, transform 0.3s;
         }
         
         .social-links-hero a:hover {
-            color: var(--accent-color);
-            transform: scale(1.2);
+            color: var(--primary-color);
+            transform: translateY(-5px);
         }
 
         /* --- About Section --- */
         #about .about-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
         
         #about img {
             max-width: 100%;
-            border-radius: 15px;
+            border-radius: 20px;
             box-shadow: var(--shadow);
+            border: 3px solid var(--primary-color);
         }
-        
-        #about p {
-            max-width: 600px;
-        }
-        
-        #secret-word {
-            color: var(--accent-color);
-            font-weight: bold;
-            cursor: help;
-        }
-        
+
         /* --- Philosophy Section --- */
         #philosophy .philosophy-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
         #philosophy .card blockquote {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-style: italic;
-            border-left: 3px solid var(--accent-color);
+            border-left: 4px solid var(--primary-color);
             padding-left: 1.5rem;
             margin: 0;
             position: relative;
-        }
-
-        #philosophy .card blockquote::before {
-            content: '“';
-            font-size: 3rem;
-            color: var(--primary-color);
-            position: absolute;
-            left: -10px;
-            top: -20px;
-            opacity: 0.5;
+            color: var(--text-color);
         }
         
         #philosophy .card p.author {
             text-align: right;
             margin-top: 1rem;
-            margin-bottom: 0;
             font-weight: bold;
             color: var(--secondary-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
         }
-
 
         /* --- Projects Section --- */
         #projects .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             margin-top: 2rem;
         }
         
         .project-card h3 {
-            color: var(--secondary-color);
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .project-card .project-links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
         }
         
         .project-card .project-links a {
-            color: var(--accent-color);
-            margin-right: 1rem;
+            color: var(--secondary-color);
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s;
         }
         
         .project-card .project-links a:hover {
-            text-decoration: underline;
+            color: var(--text-color);
         }
         
         /* --- Contact Section --- */
         #contact {
             text-align: center;
+            background-color: #12121e;
+        }
+        
+        #contact .card {
+            max-width: 600px;
+            margin: 2rem auto;
         }
         
         #contact-form {
-            max-width: 600px;
-            margin: 2rem auto 0;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.2rem;
         }
         
         #contact-form input, #contact-form textarea {
             width: 100%;
-            padding: 1rem;
-            border-radius: 10px;
-            border: 1px solid var(--card-border);
-            background: var(--card-bg);
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.05);
             color: var(--text-color);
-            font-family: 'Poppins', sans-serif;
+            font-family: var(--font-main);
+            font-size: 1rem;
         }
         
         #contact-form input::placeholder, #contact-form textarea::placeholder {
-            color: #aaa;
+            color: #888;
         }
         
         #contact-form button {
@@ -355,13 +351,15 @@
         }
         
         .contact-social-links {
-            margin-top: 3rem;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
         }
         
         .contact-social-links a {
             color: var(--text-color);
-            font-size: 2rem;
-            margin: 0 1.5rem;
+            font-size: 2.2rem;
             transition: color 0.3s, transform 0.3s;
         }
         
@@ -373,116 +371,40 @@
         /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 2rem 0;
-            background: #1a1a1a;
-        }
-        
-        .corner-egg {
-            position: fixed;
-            bottom: 5px;
-            right: 5px;
-            font-size: 0.7rem;
-            color: #444;
-            cursor: pointer;
-            z-index: 1001;
-            transition: color 0.3s;
-        }
-        
-        .corner-egg:hover {
-            color: var(--accent-color);
-        }
-
-        /* --- Easter Eggs & Interactive Elements --- */
-        .floating-emoji {
-            position: fixed;
-            font-size: 1.5rem;
-            pointer-events: none;
-            animation: float 10s infinite linear;
-            z-index: -1;
-            opacity: 0.5;
-        }
-        
-        .floating-emoji.clickable {
-            pointer-events: all;
-            cursor: pointer;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-50px) rotate(180deg); }
-            100% { transform: translateY(0) rotate(360deg); }
-        }
-
-        /* Modal for quotes */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1001;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.7);
-        }
-
-        .modal-content {
-            margin: 15% auto;
-            padding: 2rem;
-            width: 80%;
-            max-width: 500px;
-            position: relative;
-            text-align: center;
-        }
-        
-        .modal-content p {
-            font-size: 1.2rem;
-            color: var(--text-dark);
-        }
-        
-        .modal-content small {
-            display: block;
-            margin-top: 1rem;
-            color: #555;
-        }
-
-        .close-btn {
-            color: #aaa;
-            position: absolute;
-            top: 10px;
-            right: 25px;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
+            padding: 2.5rem 0;
+            background: #12121e;
+            border-top: 1px solid var(--border-color);
         }
 
         /* --- Responsive Design --- */
         @media(max-width: 768px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 3rem; }
             h2 { font-size: 2rem; }
 
-            .nav-links {
+            .navbar .nav-links {
                 position: fixed;
                 left: -100%;
                 top: 5rem;
                 flex-direction: column;
-                background-color: #333;
+                background-color: rgba(26, 26, 46, 0.95);
+                backdrop-filter: blur(10px);
                 width: 100%;
                 text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                transition: 0.5s;
+                gap: 0;
             }
             
-            .nav-links.active {
+            .navbar .nav-links.active {
                 left: 0;
             }
 
             .nav-links li {
-                margin: 2.5rem 0;
+                margin: 2rem 0;
             }
             
             .hamburger {
                 display: block;
+                cursor: pointer;
             }
             
             .hamburger.active .bar:nth-child(2) {
@@ -502,7 +424,7 @@
             
             #about img {
                 max-width: 80%;
-                margin: 0 auto;
+                margin: 0 auto 2rem;
             }
         }
     </style>
@@ -511,7 +433,7 @@
 
     <header class="navbar">
         <div class="container">
-            <a href="#" class="logo">P<span id="logo-dot">.</span>S<span id="logo-dot-2">.</span></a>
+            <a href="#" class="logo">P<span>.</span>S<span>.</span></a>
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -533,7 +455,8 @@
                 <img src="my-photo.jpg" alt="Prashanna Shrestha" id="profile-pic">
             </div>
             <h1>Prashanna Shrestha</h1>
-            <p class="job-title">I'm a <span id="job-title-text">naughty</span> Problem Solver</p>
+            <p class="job-title">A <strong>Naughty</strong> Problem Solver</p>
+            <a href="#projects" class="btn">View My Work</a>
             <div class="social-links-hero">
                 <a href="https://github.com/mrprashanna" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="mailto:prashannas@proton.me" aria-label="Email"><i class="fas fa-envelope"></i></a>
@@ -545,15 +468,15 @@
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
-            <div class="about-content card">
-                <img src="my-photo.jpg" alt="Prashanna Shrestha" id="profile-pic">
-                <div>
+            <div class="about-content">
+                <img src="my-photo.jpg" alt="Prashanna Shrestha">
+                <div class="card">
                     <h3>Developer, Innovator, and Occasional Comedian.</h3>
                     <p>
                         Hello! I'm Prashanna, a creative thinker who builds elegant solutions for complex problems. I believe great work is not just functional, but also a work of art. My approach combines technical curiosity with a creative spark to deliver products that are both powerful and delightful to use.
                     </p>
                     <p>
-                        I write code that is clean, efficient, and occasionally self-aware. It hasn't achieved sentience... yet. When I'm not crafting digital experiences, you can find me exploring new ideas or hunting for the perfect cup of coffee. I believe in the power of a good <b id="secret-word" title="Click me for a surprise!">laugh</b> to solve any problem.
+                        I write code that is clean, efficient, and occasionally self-aware. It hasn't achieved sentience... yet. When I'm not crafting digital experiences, you can find me exploring new ideas or hunting for the perfect cup of coffee.
                     </p>
                     <a href="#contact" class="btn">Get In Touch</a>
                 </div>
@@ -571,23 +494,19 @@
                 </div>
                 <div class="card">
                     <blockquote>My code has two states: 1) Doesn't run and I don't know why. 2) Runs and I don't know why.</blockquote>
-                     <p class="author">- The Duality of Dev</p>
+                    <p class="author">- The Duality of Dev</p>
                 </div>
                 <div class="card">
                     <blockquote>Debugging is like being the detective in a crime movie where you are also the murderer.</blockquote>
-                     <p class="author">- A True Story</p>
-                </div>
-                <div class="card">
-                    <blockquote>The best error message is the one that never appears. The second best is one that makes you laugh before you cry.</blockquote>
-                     <p class="author">- User Experience 101</p>
+                    <p class="author">- A True Story</p>
                 </div>
                 <div class="card">
                     <blockquote>There are only two hard things in Computer Science: cache invalidation, naming things, and off-by-one errors.</blockquote>
-                     <p class="author">- A Classic Paradox</p>
+                    <p class="author">- A Classic Paradox</p>
                 </div>
-                 <div class="card">
-                    <blockquote>Talk is cheap. Show me the code. ...And maybe a funny cat video.</blockquote>
-                     <p class="author">- Linus Torvalds (paraphrased)</p>
+                <div class="card">
+                    <blockquote>Talk is cheap. Show me the code. And maybe a funny cat video.</blockquote>
+                    <p class="author">- Linus Torvalds (paraphrased)</p>
                 </div>
             </div>
         </div>
@@ -607,7 +526,7 @@
                 </div>
                 <div class="project-card card">
                     <h3>The Chameleon UI</h3>
-                    <p>A UI library that changes its color scheme based on the weather outside. Because why not? It's completely useless but aesthetically pleasing.</p>
+                    <p>A UI library that changes its color scheme based on the weather outside. It's completely useless but aesthetically pleasing.</p>
                     <div class="project-links">
                         <a href="https://github.com/mrprashanna" target="_blank"><i class="fab fa-github"></i> View Code</a>
                         <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
@@ -631,7 +550,7 @@
             <p>Have a project, a question, or a great joke? I'd love to hear from you.</p>
             <div class="card">
                 <p>You can reach me directly at:</p>
-                <h3><a href="mailto:prashannas@proton.me" style="color: var(--accent-color); text-decoration: none;">prashannas@proton.me</a></h3>
+                <h3><a href="mailto:prashannas@proton.me" style="color: var(--primary-color); text-decoration: none;">prashannas@proton.me</a></h3>
             </div>
 
             <div class="contact-social-links">
@@ -646,17 +565,6 @@
             <p>&copy; 2025 Prashanna Shrestha. All rights reserved. <br> Built with coffee, code, and a pinch of chaos.</p>
         </div>
     </footer>
-    
-    <div class="corner-egg" id="corner-egg">psst!</div>
-
-    <div id="quote-modal" class="modal">
-        <div class="modal-content card">
-            <span class="close-btn">&times;</span>
-            <p id="quote-text"></p>
-            <small id="quote-subtext"></small>
-        </div>
-    </div>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -675,114 +583,7 @@
                     navLinks.classList.remove('active');
                 });
             });
-
-            // --- Easter Eggs & Interactivity ---
-
-            // 1. Profile Picture Change on Click
-            const profilePic = document.getElementById('profile-pic');
-            const profilePics = [
-                'https://i.imgur.com/8Q6ZfJ2.png', // Normal
-                'https://i.imgur.com/8t3t8kL.png'  // Winking
-            ];
-            let currentPicIndex = 0;
-            profilePic.addEventListener('click', () => {
-                currentPicIndex = (currentPicIndex + 1) % profilePics.length;
-                profilePic.src = profilePics[currentPicIndex];
-            });
-
-            // 2. Job Title Change on Click
-            const jobTitleText = document.getElementById('job-title-text');
-            const jobTitles = ['naughty funny', 'Creative Problem Solver', 'Chief Mischief Officer', 'Full-Stack Developer'];
-            let currentTitleIndex = 0;
-            jobTitleText.addEventListener('click', () => {
-                currentTitleIndex = (currentTitleIndex + 1) % jobTitles.length;
-                jobTitleText.textContent = jobTitles[currentTitleIndex];
-            });
-
-            // 3. Cheeky Quotes Modal
-            const modal = document.getElementById('quote-modal');
-            const quoteText = document.getElementById('quote-text');
-            const quoteSubtext = document.getElementById('quote-subtext');
-            const secretWord = document.getElementById('secret-word');
-            const closeBtn = document.querySelector('.close-btn');
-
-            const quotes = [
-                { text: "They say 'don't reinvent the wheel'. I say 'what if the wheel could have RGB?'", subtext: "" },
-                { text: "My code is like a good joke - it needs no explanation.", subtext: "(If it does, it's bad code.)" },
-                { text: "Sleep is just a poor substitute for coffee.", subtext: "" },
-                { text: "Warning: Coder at work.", subtext: "Approach with coffee and snacks for best results." },
-                { text: "I'm not arguing, I'm just explaining why I'm right in excruciating detail.", subtext: "" }
-            ];
-
-            const showModal = () => {
-                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-                quoteText.textContent = randomQuote.text;
-                quoteSubtext.textContent = randomQuote.subtext;
-                modal.style.display = 'block';
-            };
-
-            secretWord.addEventListener('click', showModal);
-            closeBtn.addEventListener('click', () => modal.style.display = 'none');
-            window.addEventListener('click', (event) => {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                }
-            });
-
-            // 4. Click Counter Easter Egg (on the second logo dot)
-            const logoDot2 = document.getElementById('logo-dot-2');
-            let dotClickCount = 0;
-            logoDot2.addEventListener('click', () => {
-                dotClickCount++;
-                if (dotClickCount === 7) {
-                    alert("You found it! You're clearly a detail-oriented person. We should talk.");
-                    dotClickCount = 0; // Reset counter
-                }
-            });
-
-            // 5. Hidden Corner Element
-            const cornerEgg = document.getElementById('corner-egg');
-            cornerEgg.addEventListener('click', () => {
-                alert("Hello there, curious explorer! Keep clicking around, you might find more secrets.");
-            });
-
-            // 6. Floating Emojis
-            const emojis = ['😏', '😈', '🤪', '👨‍💻', '🚀', '✨'];
-            function createFloatingEmoji() {
-                const emoji = document.createElement('div');
-                emoji.classList.add('floating-emoji');
-                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-
-                // Make one of them clickable for fun
-                if (Math.random() > 0.8) {
-                    emoji.classList.add('clickable');
-                    emoji.addEventListener('click', () => {
-                        emoji.textContent = '💥';
-                        setTimeout(() => emoji.remove(), 300);
-                    });
-                }
-                
-                emoji.style.left = `${Math.random() * 100}vw`;
-                emoji.style.top = `${Math.random() * 100}vh`;
-                emoji.style.animationDuration = `${Math.random() * 5 + 5}s`; // 5 to 10 seconds
-                emoji.style.animationDelay = `${Math.random() * 5}s`;
-
-                document.body.appendChild(emoji);
-
-                setTimeout(() => {
-                    emoji.remove();
-                }, 10000); // Remove after 10 seconds
-            }
-
-            // Create a few emojis to start
-            for(let i=0; i<10; i++) {
-                createFloatingEmoji();
-            }
-            // Add more over time
-            setInterval(createFloatingEmoji, 3000);
-
         });
     </script>
 </body>
-
 </html>
