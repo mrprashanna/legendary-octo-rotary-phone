@@ -3,554 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prashanna Shrestha | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Prashanna Shrestha - Portfolio</title>
     <style>
-        /* CSS Reset & Root Variables */
-        :root {
-            --bg-color: #2c2040; /* Muted deep purple */
-            --primary-color: #c3a0e6; /* Soft lavender */
-            --accent-color: #e6c88f; /* Warm gold */
-            --text-color: #e0e0e0;
-            --text-dark: #1f1a26;
-            --card-bg: #3c2f52; /* Slightly lighter purple for cards */
-            --border-color: #4c3f64;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            --font-main: 'Inter', sans-serif;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
-        /* --- Global Styles --- */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 20px;
         }
 
-        h1, h2, h3 {
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 10px;
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
         }
 
-        h1 { font-size: 3.5rem; }
-        h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; }
-        p { margin-bottom: 1rem; }
+        .subtitle {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 10px;
+        }
 
-        .btn {
-            display: inline-block;
-            padding: 0.9rem 2.5rem;
-            background: var(--primary-color);
-            color: var(--text-dark);
-            border: none;
-            border-radius: 5px;
+        .university {
+            font-size: 1.1em;
+            color: #888;
+            font-style: italic;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #667eea;
             text-decoration: none;
             font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .btn:hover {
-            background: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        .contact-links a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
 
         section {
-            padding: 6rem 0;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
         }
 
-        /* --- Card Style --- */
-        .card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .project {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* --- Header & Navigation --- */
-        .navbar {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            padding: 1.5rem 0;
-            background: rgba(44, 32, 64, 0.9);
-            border-bottom: 1px solid var(--border-color);
+        .project:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
         }
 
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .navbar .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-color);
-            text-decoration: none;
-            letter-spacing: 2px;
+        .project h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 15px;
         }
 
-        .navbar .logo span {
-            color: var(--accent-color);
-        }
-
-        .nav-links {
+        .project ul {
             list-style: none;
-            display: flex;
-            gap: 2.5rem;
+            padding-left: 0;
         }
 
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-        
-        .hamburger {
-            display: none;
-        }
-
-        /* --- Hero Section --- */
-        #hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 80px;
+        .project li {
+            padding: 8px 0;
+            color: #555;
+            padding-left: 20px;
             position: relative;
         }
 
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 2;
-        }
-        
-        .profile-pic-container {
-            margin-bottom: 2rem;
+        .project li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
         }
 
-        #profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid var(--primary-color);
-            transition: all 0.3s ease;
-        }
-        
-        #profile-pic:hover {
-            transform: scale(1.05);
-            border-color: var(--accent-color);
+        .tech-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            margin-top: 10px;
         }
 
-        #hero h1 {
-            font-size: 4rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-color);
-        }
-        
-        .job-title {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 2.5rem;
-            color: var(--primary-color);
-        }
-        
-        .social-links-hero {
-            margin-top: 1.5rem;
-        }
-        
-        .social-links-hero a {
-            color: var(--text-color);
-            font-size: 1.8rem;
-            margin: 0 1rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links-hero a:hover {
-            color: var(--primary-color);
-        }
-
-        /* --- About Section --- */
-        #about .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        #about img {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-
-        /* --- Philosophy Section --- */
-        #philosophy .philosophy-grid {
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 30px;
+            margin-top: 20px;
         }
 
-        #philosophy .card blockquote {
-            font-size: 1rem;
-            font-style: italic;
-            border-left: 3px solid var(--accent-color);
-            padding-left: 1.5rem;
-            margin: 0;
-            color: var(--text-color);
-        }
-        
-        #philosophy .card p.author {
-            text-align: right;
-            margin-top: 1rem;
-            font-weight: 500;
-            color: var(--primary-color);
-            font-size: 0.9rem;
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-top: 4px solid #764ba2;
         }
 
-        /* --- Projects Section --- */
-        #projects .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-        
-        .project-card h3 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-        }
-        
-        .project-card .project-links {
-            margin-top: 1.5rem;
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .project-card .project-links a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .project-card .project-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* --- Contact Section --- */
-        #contact {
-            text-align: center;
-            background-color: #241a30;
-        }
-        
-        #contact .card {
-            max-width: 600px;
-            margin: 2rem auto;
-            background: var(--card-bg);
-        }
-        
-        #contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-        
-        #contact-form input, #contact-form textarea {
-            width: 100%;
-            padding: 1.2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            background: var(--card-bg);
-            color: var(--text-color);
-            font-family: var(--font-main);
-            font-size: 1rem;
-        }
-        
-        #contact-form input::placeholder, #contact-form textarea::placeholder {
-            color: #888;
-        }
-        
-        #contact-form button {
-            cursor: pointer;
-        }
-        
-        .contact-social-links {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-        
-        .contact-social-links a {
-            color: var(--text-color);
-            font-size: 2rem;
-            transition: color 0.3s;
-        }
-        
-        .contact-social-links a:hover {
-            color: var(--primary-color);
+        .skill-category h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.3em;
         }
 
-        /* --- Footer --- */
+        .skill-category p {
+            color: #555;
+            line-height: 1.8;
+        }
+
         footer {
             text-align: center;
-            padding: 2.5rem 0;
-            background: #241a30;
-            border-top: 1px solid var(--border-color);
+            padding: 30px;
+            color: white;
+            font-size: 0.95em;
         }
 
-        /* --- Responsive Design --- */
-        @media(max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-
-            .navbar .nav-links {
-                position: fixed;
-                left: -100%;
-                top: 5rem;
-                flex-direction: column;
-                background-color: rgba(44, 32, 64, 0.95);
-                width: 100%;
-                text-align: center;
-                transition: 0.5s;
-                gap: 0;
-            }
-            
-            .navbar .nav-links.active {
-                left: 0;
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
             }
 
-            .nav-links li {
-                margin: 1.5rem 0;
-            }
-            
-            .hamburger {
-                display: block;
-                cursor: pointer;
-            }
-            
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
+            .subtitle {
+                font-size: 1.1em;
             }
 
-            #about .about-content {
+            section {
+                padding: 25px;
+            }
+
+            .skills-grid {
                 grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            #about img {
-                max-width: 80%;
-                margin: 0 auto 2rem;
             }
         }
     </style>
 </head>
 <body>
-
-    <header class="navbar">
-        <div class="container">
-            <a href="#" class="logo">P<span>.</span>S<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#philosophy">Philosophy</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </header>
-
-    <section id="hero">
-        <div class="container hero-content">
-            <div class="profile-pic-container">
-                <img src="my-photo.jpg" alt="Prashanna Shrestha" id="profile-pic">
-            </div>
+    <div class="container">
+        <header>
             <h1>Prashanna Shrestha</h1>
-            <p class="job-title">A **Mischievous** Problem Solver</p>
-            <a href="#projects" class="btn">View My Work</a>
-            <div class="social-links-hero">
-                <a href="https://github.com/mrprashanna" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="mailto:prashannas@proton.me" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://instagram.com/mrprashanna" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <p class="subtitle">B.Sc. CSIT Undergraduate Student</p>
+            <p class="university">Tribhuvan University</p>
+            <div class="contact-links">
+                <a href="mailto:prashannashrestha345@gmail.com">📧 Email</a>
+                <a href="https://github.com/mrprashanna" target="_blank">💻 GitHub</a>
+                <a href="https://instagram.com/mrprashanna" target="_blank">📱 Instagram</a>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <img src="my-photo.jpg" alt="Prashanna Shrestha">
-                <div class="card">
-                    <h3>Developer, Innovator, and Occasional Comedian.</h3>
-                    <p>
-                        Hello! I'm Prashanna, a creative thinker who builds elegant solutions for complex problems. I believe great work is not just functional, but also a work of art. My approach combines technical curiosity with a creative spark to deliver products that are both powerful and delightful to use.
-                    </p>
-                    <p>
-                        I write code that is clean, efficient, and occasionally self-aware. It hasn't achieved sentience... yet. When I'm not crafting digital experiences, you can find me exploring new ideas or hunting for the perfect cup of coffee.
-                    </p>
-                    <a href="#contact" class="btn">Get In Touch</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="philosophy">
-        <div class="container">
-            <h2>Words I Code By</h2>
-            <div class="philosophy-grid">
-                <div class="card">
-                    <blockquote>I turn caffeine into code and sarcasm into features. It's a living.</blockquote>
-                    <p class="author">- My Brain at 3 AM</p>
-                </div>
-                <div class="card">
-                    <blockquote>My code has two states: 1) Doesn't run and I don't know why. 2) Runs and I don't know why.</blockquote>
-                    <p class="author">- The Duality of Dev</p>
-                </div>
-                <div class="card">
-                    <blockquote>Debugging is like being the detective in a crime movie where you are also the murderer.</blockquote>
-                    <p class="author">- A True Story</p>
-                </div>
-                <div class="card">
-                    <blockquote>There are only two hard things in Computer Science: cache invalidation, naming things, and off-by-one errors.</blockquote>
-                    <p class="author">- A Classic Paradox</p>
-                </div>
-                <div class="card">
-                    <blockquote>Talk is cheap. Show me the code. And maybe a funny cat video.</blockquote>
-                    <p class="author">- Linus Torvalds (paraphrased)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card card">
-                    <h3>Project Mayhem</h3>
-                    <p>A productivity app that secretly analyzes your procrastination patterns and sends you memes about it. Increased productivity by 15%, meme consumption by 80%.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/mrprashanna" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                    </div>
-                </div>
-                <div class="project-card card">
-                    <h3>The Chameleon UI</h3>
-                    <p>A UI library that changes its color scheme based on the weather outside. It's completely useless but aesthetically pleasing.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/mrprashanna" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                    </div>
-                </div>
-                <div class="project-card card">
-                    <h3>Code-a-Pillar</h3>
-                    <p>An educational game that teaches kids to code by turning bugs into literal caterpillar characters they have to squash. Surprisingly therapeutic for developers too.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/mrprashanna" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2>Let's Connect</h2>
-            <p>Have a project, a question, or a great joke? I'd love to hear from you.</p>
-            <div class="card">
-                <p>You can reach me directly at:</p>
-                <h3><a href="mailto:prashannas@proton.me" style="color: var(--accent-color); text-decoration: none;">prashannas@proton.me</a></h3>
-            </div>
-
-            <div class="contact-social-links">
-                <a href="https://github.com/mrprashanna" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://instagram.com/mrprashanna" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Prashanna Shrestha. All rights reserved. <br> Built with coffee, code, and a pinch of chaos.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // --- Mobile Navigation ---
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
+        <section>
+            <h2>Projects</h2>
             
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-        });
-    </script>
+            <div class="project">
+                <h3>News Portal – Laravel</h3>
+                <ul>
+                    <li>Developed a fully functional news portal with user authentication, content management, and admin panel</li>
+                    <li>Implemented secure user registration and login system</li>
+                    <li>Created comprehensive admin dashboard for content management</li>
+                </ul>
+                <div>
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">Laravel</span>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">MySQL</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>Message Scheduler – Python</h3>
+                <ul>
+                    <li>Created a Python application to schedule and send automated messages at specified times</li>
+                    <li>Implemented scheduling algorithms for precise message delivery</li>
+                </ul>
+                <div>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQLite</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>Banking System – Python</h3>
+                <ul>
+                    <li>Developed a console-based banking system supporting account creation, transactions, and balance management</li>
+                    <li>Implemented secure transaction processing and account management features</li>
+                </ul>
+                <div>
+                    <span class="tech-tag">Python</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>Task Manager – Python</h3>
+                <ul>
+                    <li>Created a task management app allowing users to add, edit, and delete tasks with deadlines</li>
+                    <li>Integrated database for persistent task storage</li>
+                </ul>
+                <div>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQLite</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>Password Generator – Python</h3>
+                <ul>
+                    <li>Built a secure password generator with customizable options for length and complexity</li>
+                    <li>Implemented various security parameters for strong password generation</li>
+                </ul>
+                <div>
+                    <span class="tech-tag">Python</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>Interactive Games – Python</h3>
+                <ul>
+                    <li>Developed multiple interactive Python games including Tic Tac Toe, Quiz, and Rock Paper Scissors</li>
+                    <li>Enhanced problem-solving and programming skills through game logic implementation</li>
+                </ul>
+                <div>
+                    <span class="tech-tag">Python</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <p>Python, Java, C, C++, C#, PHP, HTML, CSS, JavaScript</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Tools</h3>
+                    <p>Laravel, Git, GitHub, GitLab, Postman, Linux</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases & Platforms</h3>
+                    <p>SQL, MongoDB</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Prashanna Shrestha. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
