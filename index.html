@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prashanna Shrestha - Portfolio</title>
+    <title>Godfidence</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -12,303 +14,91 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: 'Playfair Display', serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 60px 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            margin-bottom: 40px;
             text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-in, float 6s ease-in-out infinite;
         }
 
         h1 {
-            font-size: 3em;
-            color: #667eea;
-            margin-bottom: 10px;
-            font-weight: 700;
+            font-size: 5rem;
+            color: #ffffff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            letter-spacing: 3px;
+            animation: textGlow 3s ease-in-out infinite alternate, breathe 4s ease-in-out infinite;
         }
 
         .subtitle {
-            font-size: 1.3em;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .university {
-            font-size: 1.1em;
-            color: #888;
+            font-size: 1.2rem;
+            color: #f0f0f0;
+            margin-top: 20px;
             font-style: italic;
         }
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 25px;
-            flex-wrap: wrap;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .contact-links a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 10px 20px;
-            border: 2px solid #667eea;
-            border-radius: 25px;
-            transition: all 0.3s ease;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
-        .contact-links a:hover {
-            background: #667eea;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        @keyframes textGlow {
+            from {
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 20px rgba(139, 92, 246, 0.5);
+            }
+            to {
+                text-shadow: 3px 3px 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(139, 92, 246, 1);
+            }
         }
 
-        section {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        h2 {
-            color: #667eea;
-            font-size: 2em;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .project {
-            margin-bottom: 35px;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
-        }
-
-        .project h3 {
-            color: #333;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-
-        .project ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .project li {
-            padding: 8px 0;
-            color: #555;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .project li:before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        .tech-tag {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.85em;
-            margin-right: 8px;
-            margin-top: 10px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .skill-category {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            border-top: 4px solid #764ba2;
-        }
-
-        .skill-category h3 {
-            color: #764ba2;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-
-        .skill-category p {
-            color: #555;
-            line-height: 1.8;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: white;
-            font-size: 0.95em;
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2em;
+                font-size: 3rem;
             }
-
             .subtitle {
-                font-size: 1.1em;
-            }
-
-            section {
-                padding: 25px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Prashanna Shrestha</h1>
-            <p class="subtitle">B.Sc. CSIT Undergraduate Student</p>
-            <p class="university">Tribhuvan University</p>
-            <div class="contact-links">
-                <a href="mailto:prashannashrestha345@gmail.com">📧 Email</a>
-                <a href="https://github.com/mrprashanna" target="_blank">💻 GitHub</a>
-                <a href="https://instagram.com/mrprashanna" target="_blank">📱 Instagram</a>
-            </div>
-        </header>
-
-        <section>
-            <h2>Projects</h2>
-            
-            <div class="project">
-                <h3>News Portal – Laravel</h3>
-                <ul>
-                    <li>Developed a fully functional news portal with user authentication, content management, and admin panel</li>
-                    <li>Implemented secure user registration and login system</li>
-                    <li>Created comprehensive admin dashboard for content management</li>
-                </ul>
-                <div>
-                    <span class="tech-tag">PHP</span>
-                    <span class="tech-tag">Laravel</span>
-                    <span class="tech-tag">HTML</span>
-                    <span class="tech-tag">CSS</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">MySQL</span>
-                </div>
-            </div>
-
-            <div class="project">
-                <h3>Message Scheduler – Python</h3>
-                <ul>
-                    <li>Created a Python application to schedule and send automated messages at specified times</li>
-                    <li>Implemented scheduling algorithms for precise message delivery</li>
-                </ul>
-                <div>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">SQLite</span>
-                </div>
-            </div>
-
-            <div class="project">
-                <h3>Banking System – Python</h3>
-                <ul>
-                    <li>Developed a console-based banking system supporting account creation, transactions, and balance management</li>
-                    <li>Implemented secure transaction processing and account management features</li>
-                </ul>
-                <div>
-                    <span class="tech-tag">Python</span>
-                </div>
-            </div>
-
-            <div class="project">
-                <h3>Task Manager – Python</h3>
-                <ul>
-                    <li>Created a task management app allowing users to add, edit, and delete tasks with deadlines</li>
-                    <li>Integrated database for persistent task storage</li>
-                </ul>
-                <div>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">SQLite</span>
-                </div>
-            </div>
-
-            <div class="project">
-                <h3>Password Generator – Python</h3>
-                <ul>
-                    <li>Built a secure password generator with customizable options for length and complexity</li>
-                    <li>Implemented various security parameters for strong password generation</li>
-                </ul>
-                <div>
-                    <span class="tech-tag">Python</span>
-                </div>
-            </div>
-
-            <div class="project">
-                <h3>Interactive Games – Python</h3>
-                <ul>
-                    <li>Developed multiple interactive Python games including Tic Tac Toe, Quiz, and Rock Paper Scissors</li>
-                    <li>Enhanced problem-solving and programming skills through game logic implementation</li>
-                </ul>
-                <div>
-                    <span class="tech-tag">Python</span>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <p>Python, Java, C, C++, C#, PHP, HTML, CSS, JavaScript</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Frameworks & Tools</h3>
-                    <p>Laravel, Git, GitHub, GitLab, Postman, Linux</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases & Platforms</h3>
-                    <p>SQL, MongoDB</p>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2025 Prashanna Shrestha. All rights reserved.</p>
-        </footer>
+        <h1>I was atheist until I realized I am god</h1>
     </div>
 </body>
 </html>
