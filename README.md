@@ -1,92 +1,122 @@
 <div align="center">
-  
-  <!-- Cinematic Header Banner Suggestion: Replace with a dark animated GIF or custom SVG of falling rain and a golden bat symbol -->
-  
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,100:1a1a1a&height=180&section=header&text=PRASHANNA%20SHRESTHA&fontSize=50&fontColor=FFD700&animation=fadeIn" width="100%" />
-  
-  <h3>
-    <code>“ The night is not my enemy — it’s my canvas. ”</code>
-  </h3>
-  
-  <p>
-    <strong>UI ENGINEER · CREATIVE CODER · ARCHITECT OF THE DARK GRID</strong>
-  </p>
+  <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXQ4MnU2eWN1aWR5cjdpZnA1bHRxeDBxeHZqMjZwa28wZzRkdm9laSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l396BoOTIFem9xqUM/giphy.gif" alt="Batman Themed Animation" width="250" style="border-radius: 50%; border: 2px solid #E8B321; margin-bottom: 20px;"/>
   
   <br/>
-  
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=800&color=FFD700&center=true&vCenter=true&width=600&lines=I+build+in+silence.;Design+is+controlled+chaos.;Every+line+has+a+purpose.;Gotham+needs+better+interfaces." alt="Typing SVG" />
-  
+
+  <a href="https://prashannashrestha.com.np">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Cinzel&weight=900&size=45&pause=1000&color=E8B321&center=true&vCenter=true&width=800&lines=The+Dark+Portfolio;Prashanna+Shrestha;Knight+of+Code;&repeat=true" alt="Typing SVG Animation" />
+  </a>
+
+  <p align="center">
+    <strong>Developer, Creator, and Gotham's Finest. Operating from the shadows.</strong>
+    <br />
+    <br />
+    <a href="https://prashannashrestha.com.np"><strong>Explore the Site »</strong></a>
+    <br />
+  </p>
+
+  <p align="center">
+    <a href="https://github.com/mrprashanna/batman-portfolio/stargazers"><img src="https://img.shields.io/github/stars/mrprashanna/batman-portfolio?style=for-the-badge&color=E8B321&logo=github&logoColor=white" alt="Stars" /></a>
+    <a href="mailto:hello@prashannashrestha.com.np"><img src="https://img.shields.io/badge/Contact-Knight-050508?style=for-the-badge&logo=minutemailer&logoColor=E8B321&labelColor=050508&color=E8B321" alt="Contact" /></a>
+    <a href="https://instagram.com/mrprashanna"><img src="https://img.shields.io/badge/Instagram-mrprashanna-050508?style=for-the-badge&logo=instagram&logoColor=E8B321&labelColor=050508&color=E8B321" alt="Instagram" /></a>
+  </p>
+</div>
+
+<hr style="border: 1px solid #E8B321; margin: 20px 0;">
+
+### 🦇 Vengeance. The Night. The Code. 
+
+Welcome to the **Dark Portfolio**. This is a premium, high-performance, and meticulously crafted personal portfolio website designed to reflect precision, purpose, and a touch of darkness. Built entirely with Vanilla web technologies, it features fluid animations, parallax effects, and an immersive user experience without any heavy framework overhead.
+
+---
+
+### 🔥 Features
+
+<p align="left">
+  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTEyZ3A4dXZkNTMzcHd4YnhocWgyanE4cWYzdmcxNjRzcjExZWwzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qrTzXpYJ7m2sM/giphy.gif" width="160" align="right" style="border-radius: 10px; border: 1px solid #E8B321; margin-left: 15px;"/>
+</p>
+
+- 🗡️ **Immersive UI/UX:** A bespoke Batman-inspired cinematic experience.
+- ⚡ **Lightning Fast:** Pure HTML, CSS, and Vanilla JavaScript—no bloat.
+- 🎨 **Minimalist & Responsive:** Built to look spectacular seamlessly on mobile and desktop devices.
+- 🎞️ **Custom Interactions:** Smooth scroll animations, typing effects, scroll indicators, and interactive easter eggs (🔍 *Try the Konami Code on the site*).
+- 🦇 **Dark Theme Dominance:** Handcrafted custom design utilizing exact color palettes to bring out the Gotham aesthetic (`#050508` & `#E8B321`).
+
+<br clear="both"/>
+
+---
+
+### 💻 Technologies Used
+
+Built with the tools forged in the Batcave:
+
+<div align="center">
+    <img src="https://img.shields.io/badge/HTML5-050508?style=for-the-badge&logo=html5&logoColor=E34F26&color=050508" alt="HTML5" />
+    <img src="https://img.shields.io/badge/CSS3-050508?style=for-the-badge&logo=css3&logoColor=1572B6&color=050508" alt="CSS3" />
+    <img src="https://img.shields.io/badge/JavaScript-050508?style=for-the-badge&logo=javascript&logoColor=F7DF1E&color=050508" alt="JavaScript" />
+    <img src="https://img.shields.io/badge/Canvas_API-050508?style=for-the-badge&logo=canvas&logoColor=E8B321&color=050508" alt="Canvas" />
+</div>
+
+> *"It's not who I am underneath, but what I code that defines me."*
+
+---
+
+### 🚀 Bat-Signal Setup (Run Locally)
+
+If you wish to deploy the Bat-Signal in your own local environment:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/mrprashanna/batman-portfolio.git
+   ```
+2. **Navigate into the directory**
+   ```bash
+   cd batman-portfolio
+   ```
+3. **Launch the site**
+   Simply open `index.html` in your favorite web browser or use a local server like `Live Server` in VS Code to see the animations in action!
+
+---
+
+### 📊 GitHub Stats
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=mrprashanna&show_icons=true&title_color=E8B321&text_color=ffffff&icon_color=E8B321&bg_color=050508&hide_border=true&layout=compact" alt="GitHub Stats" width="48%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mrprashanna&hide_border=true&background=050508&ring=E8B321&fire=E8B321&currStreakNum=ffffff&currStreakLabel=E8B321&sideNums=ffffff&sideLabels=ffffff&dates=ffffff" alt="GitHub Streak" width="48%" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mrprashanna&layout=compact&title_color=E8B321&text_color=ffffff&bg_color=050508&hide_border=true" alt="Top Languages" width="60%" />
 </div>
 
 ---
 
-## 🦇 ORIGIN STORY
+### 🦇 Light the Signal
 
-In a city that never sleeps, where data flickers like neon on wet asphalt — I found my signal.  
-Not in the spotlight, but in the quiet glow of a terminal. **Gotham’s grid** taught me that every interface is a weapon against disorder.
+Need a developer for a mission-critical project or just want to connect? Light up the signal.
 
-I started as a pixel mercenary, hunting layout bugs in the dark. Then I learned to bend CSS, tame JavaScript, and orchestrate animations that breathe. Today, I architect experiences for the elite — clean, untraceable, and precise.
-
-Behind the mask, I’m **Prashanna Shrestha**.  
-Frontend developer. UI engineer. A silent guardian of user experience.
-
-> “I don’t build for applause. I build for the moment everything *just works* — and the user never knows why.”
-
----
-
-## ⚔️ PHILOSOPHY
-
-```text
-◆ Precision over speed — but speed when it matters.
-◆ Clarity is my stealth — no component hides without reason.
-◆ Minimalism isn’t empty — it’s every element earning its place.
-◆ Dark mode is not a feature. It’s a statement.
-◆ The best code reads like a Nolan script — tight, intentional, unforgettable.
-🛠️ THE UTILITY BELT
 <div align="center">
-FRONTEND
-
-https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=FFD700
-https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=FFD700
-https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=FFD700
-https://img.shields.io/badge/Tailwind_CSS-0F172A?style=for-the-badge&logo=tailwind-css&logoColor=FFD700
-https://img.shields.io/badge/Framer_Motion-000000?style=for-the-badge&logo=framer&logoColor=FFD700
-TOOLS & DARK ARTS
-
-https://img.shields.io/badge/Git-1C1E24?style=for-the-badge&logo=git&logoColor=FFD700
-https://img.shields.io/badge/Figma-0A0A0A?style=for-the-badge&logo=figma&logoColor=FFD700
-https://img.shields.io/badge/WebGL-990000?style=for-the-badge&logo=webgl&logoColor=FFD700
-https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=FFD700
-OTHERS (ON STAND-BY)
-
-https://img.shields.io/badge/Node.js-1F2A2E?style=for-the-badge&logo=node.js&logoColor=FFD700
-https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=FFD700
+  <a href="mailto:hello@prashannashrestha.com.np">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Rajdhani&weight=600&size=22&pause=1000&color=E8B321&center=true&vCenter=true&width=600&lines=Call+the+Knight;I+respond+from+the+shadows..." alt="Call the Knight" />
+  </a>
 </div>
-🎯 MISSION: WHAT I BUILD
 
-I don’t collect projects. I deploy experiences.
+<br>
 
-    Stealth-grade dashboards — where data moves like shadow, and latency is the enemy.
-
-    Cinematic landing pages — with particle fields, parallax depth, and a heartbeat in every scroll.
-
-    Design systems for the elite — components so sharp they could cut glass.
-
-    Interactive storytelling interfaces — because code can feel like a Nolan prologue.
-
-Every repository is a tool in the belt. Every commit, a silent step forward.
-📊 GOTHAM STATISTICS
-<div align="center"> <img height="180em" src="https://github-readme-stats.vercel.app/api?username=prashannashrestha&show_icons=true&bg_color=0d1117&title_color=FFD700&icon_color=FFD700&text_color=ffffff&border_color=2a2a2a&hide_border=false&include_all_commits=true&count_private=true" /> <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=prashannashrestha&layout=compact&bg_color=0d1117&title_color=FFD700&text_color=ffffff&border_color=2a2a2a&hide_border=false&langs_count=6" />
-
-
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=prashannashrestha&theme=dark&background=0d1117&ring=FFD700&fire=FFD700&currStreakLabel=FFD700&sideLabels=ffffff&dates=aaaaaa" /></div>
-🦇 BAT‑SIGNAL · CONTACT CHANNELS
 <div align="center">
-
-https://img.shields.io/badge/Email-Contact_Me-FFD700?style=for-the-badge&logo=gmail&logoColor=black&color=1A1A1A&labelColor=000000
-https://img.shields.io/badge/GitHub-Patches_at_Night-FFD700?style=for-the-badge&logo=github&logoColor=black&color=1A1A1A
-https://img.shields.io/badge/Instagram-The_Chronicles-FFD700?style=for-the-badge&logo=instagram&logoColor=black&color=1A1A1A
+  <strong><a href="mailto:hello@prashannashrestha.com.np" style="color: #E8B321;">📧 Email Me</a></strong> | <strong><a href="https://instagram.com/mrprashanna" style="color: #ffffff;">📸 Instagram</a></strong> | <strong><a href="https://github.com/mrprashanna" style="color: #ffffff;">💻 GitHub</a></strong>
 </div>
-⚫ CLOSING QUOTE
-<div align="center"> <blockquote> “You either die a hero, or you live long enough to see yourself become the framework maintainer.<br/> But I choose the third path — build everything from scratch, and never look back.” </blockquote> <p><strong>— PRASHANNA SHRESTHA · THE DARK KNIGHT OF FRONTEND</strong></p></div><div align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,100:1a1a1a&height=100&section=footer" width="100%" /> </div><!-- 🔧 PROFILE AESTHETIC BOOST TIPS: - Enable GitHub Actions to generate a dark snake animation (platane/snk) for your contribution grid. - Add a custom banner with a looping GIF of rain + golden bat symbol (host on your portfolio or GIPHY). - Pin 3 repositories with “dark cinematic” READMEs matching this style. - Use a dark theme for your GitHub profile banner and avatar (silhouette or masked hero). - Set your status message: “⚫ Working in the shadows. Release at midnight.” -->
+
+<br/>
+
+<p align="center">
+  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnZ3bm1sY3A1M25rZWVnZXNqNDMwejd6MHRsZTN6aDFobzdwZWpxdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/a5viI92PAF89q/giphy.gif" alt="Batman Shadows" width="300" style="border-radius: 5px;"/>
+</p>
+
+<p align="center">
+  <i>"No matter how deep the darkness, a light will always shine."</i>
+</p>
+
+
