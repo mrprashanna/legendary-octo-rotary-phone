@@ -78,21 +78,6 @@ If you wish to deploy the Bat-Signal in your own local environment:
 
 ---
 
-### 📊 GitHub Stats
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=mrprashanna&show_icons=true&title_color=E8B321&text_color=ffffff&icon_color=E8B321&bg_color=050508&hide_border=true&layout=compact" alt="GitHub Stats" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mrprashanna&hide_border=true&background=050508&ring=E8B321&fire=E8B321&currStreakNum=ffffff&currStreakLabel=E8B321&sideNums=ffffff&sideLabels=ffffff&dates=ffffff" alt="GitHub Streak" width="48%" />
-</div>
-
-<br/>
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mrprashanna&layout=compact&title_color=E8B321&text_color=ffffff&bg_color=050508&hide_border=true" alt="Top Languages" width="60%" />
-</div>
-
----
-
 ### 🦇 Light the Signal
 
 Need a developer for a mission-critical project or just want to connect? Light up the signal.
