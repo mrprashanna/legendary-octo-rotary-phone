@@ -1,130 +1,92 @@
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=000000&height=120&section=header&text=PRASHANNA%20SHRESTHA&fontSize=32&fontColor=FFD700&animation=fadeIn&fontAlignY=40&desc=Frontend%20Architect%20%7C%20UI%20Engineer%20%7C%20Creative%20Coder&descAlignY=60&descAlign=50&fontAlign=50" alt="Hero Banner"/>
-</p>
-
-<p align="center">
-  <em><strong>« Code forged in darkness. Interfaces built for light. »</strong></em>
-</p>
-
-<p align="center">
-  <a href="https://github.com/mrprashanna"><img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=FFD700&labelColor=111" alt="GitHub"/></a>
-  <a href="mailto:hello@prashannashrestha.com.np"><img src="https://img.shields.io/badge/Email-000000?style=flat-square&logo=mail.ru&logoColor=FFD700&labelColor=111" alt="Email"/></a>
-  <a href="https://instagram.com/mrprashanna"><img src="https://img.shields.io/badge/Instagram-000000?style=flat-square&logo=instagram&logoColor=FFD700&labelColor=111" alt="Instagram"/></a>
-</p>
-
----
-
-## 🦇 ORIGIN
-
-Not every developer wears a cape.  
-Some work in silence. From the shadows.
-
-I build digital experiences the way Gotham protects its streets:  
-with precision, purpose, and an unwavering standard.
-
-Every line of code is a decision. Every pixel, a statement.  
-I don't chase trends. I architect presence.
+<div align="center">
+  
+  <!-- Cinematic Header Banner Suggestion: Replace with a dark animated GIF or custom SVG of falling rain and a golden bat symbol -->
+  
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,100:1a1a1a&height=180&section=header&text=PRASHANNA%20SHRESTHA&fontSize=50&fontColor=FFD700&animation=fadeIn" width="100%" />
+  
+  <h3>
+    <code>“ The night is not my enemy — it’s my canvas. ”</code>
+  </h3>
+  
+  <p>
+    <strong>UI ENGINEER · CREATIVE CODER · ARCHITECT OF THE DARK GRID</strong>
+  </p>
+  
+  <br/>
+  
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=800&color=FFD700&center=true&vCenter=true&width=600&lines=I+build+in+silence.;Design+is+controlled+chaos.;Every+line+has+a+purpose.;Gotham+needs+better+interfaces." alt="Typing SVG" />
+  
+</div>
 
 ---
 
-## ⚡ PHILOSOPHY
+## 🦇 ORIGIN STORY
+
+In a city that never sleeps, where data flickers like neon on wet asphalt — I found my signal.  
+Not in the spotlight, but in the quiet glow of a terminal. **Gotham’s grid** taught me that every interface is a weapon against disorder.
+
+I started as a pixel mercenary, hunting layout bugs in the dark. Then I learned to bend CSS, tame JavaScript, and orchestrate animations that breathe. Today, I architect experiences for the elite — clean, untraceable, and precise.
+
+Behind the mask, I’m **Prashanna Shrestha**.  
+Frontend developer. UI engineer. A silent guardian of user experience.
+
+> “I don’t build for applause. I build for the moment everything *just works* — and the user never knows why.”
 
 ---
 
-## 🛠️ TECH ARSENAL
+## ⚔️ PHILOSOPHY
 
-**Frontend Core**
-<p align="center">
-  <img src="https://img.shields.io/badge/React-000000?style=flat-square&logo=react&logoColor=FFD700&labelColor=111" alt="React"/>
-  <img src="https://img.shields.io/badge/TypeScript-000000?style=flat-square&logo=typescript&logoColor=FFD700&labelColor=111" alt="TypeScript"/>
-  <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=FFD700&labelColor=111" alt="Next.js"/>
-  <img src="https://img.shields.io/badge/Tailwind-000000?style=flat-square&logo=tailwindcss&logoColor=FFD700&labelColor=111" alt="Tailwind"/>
-</p>
+```text
+◆ Precision over speed — but speed when it matters.
+◆ Clarity is my stealth — no component hides without reason.
+◆ Minimalism isn’t empty — it’s every element earning its place.
+◆ Dark mode is not a feature. It’s a statement.
+◆ The best code reads like a Nolan script — tight, intentional, unforgettable.
+🛠️ THE UTILITY BELT
+<div align="center">
+FRONTEND
 
-**Creative & Motion**
-<p align="center">
-  <img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=three.js&logoColor=FFD700&labelColor=111" alt="Three.js"/>
-  <img src="https://img.shields.io/badge/GSAP-000000?style=flat-square&logo=greensock&logoColor=FFD700&labelColor=111" alt="GSAP"/>
-  <img src="https://img.shields.io/badge/Framer-000000?style=flat-square&logo=framer&logoColor=FFD700&labelColor=111" alt="Framer"/>
-</p>
+https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=FFD700
+https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=FFD700
+https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=FFD700
+https://img.shields.io/badge/Tailwind_CSS-0F172A?style=for-the-badge&logo=tailwind-css&logoColor=FFD700
+https://img.shields.io/badge/Framer_Motion-000000?style=for-the-badge&logo=framer&logoColor=FFD700
+TOOLS & DARK ARTS
 
-**Tools & Infrastructure**
-<p align="center">
-  <img src="https://img.shields.io/badge/Git-000000?style=flat-square&logo=git&logoColor=FFD700&labelColor=111" alt="Git"/>
-  <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=FFD700&labelColor=111" alt="Vercel"/>
-  <img src="https://img.shields.io/badge/Node.js-000000?style=flat-square&logo=node.js&logoColor=FFD700&labelColor=111" alt="Node.js"/>
-</p>
+https://img.shields.io/badge/Git-1C1E24?style=for-the-badge&logo=git&logoColor=FFD700
+https://img.shields.io/badge/Figma-0A0A0A?style=for-the-badge&logo=figma&logoColor=FFD700
+https://img.shields.io/badge/WebGL-990000?style=for-the-badge&logo=webgl&logoColor=FFD700
+https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=FFD700
+OTHERS (ON STAND-BY)
 
----
+https://img.shields.io/badge/Node.js-1F2A2E?style=for-the-badge&logo=node.js&logoColor=FFD700
+https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=FFD700
+</div>
+🎯 MISSION: WHAT I BUILD
 
-## 🎯 MISSION
+I don’t collect projects. I deploy experiences.
 
-I don't just build websites.  
-I craft **digital atmospheres**.
+    Stealth-grade dashboards — where data moves like shadow, and latency is the enemy.
 
-→ Interfaces that breathe with motion  
-→ Experiences that remember you  
-→ Systems that scale like shadow  
+    Cinematic landing pages — with particle fields, parallax depth, and a heartbeat in every scroll.
 
-Every project is a signature.  
-Every deployment, a statement.
+    Design systems for the elite — components so sharp they could cut glass.
 
-*What I build:*
-- Cinematic landing pages that convert silence into action
-- Immersive web apps with canvas-driven storytelling
-- Design systems engineered for dark elegance
+    Interactive storytelling interfaces — because code can feel like a Nolan prologue.
 
----
+Every repository is a tool in the belt. Every commit, a silent step forward.
+📊 GOTHAM STATISTICS
+<div align="center"> <img height="180em" src="https://github-readme-stats.vercel.app/api?username=prashannashrestha&show_icons=true&bg_color=0d1117&title_color=FFD700&icon_color=FFD700&text_color=ffffff&border_color=2a2a2a&hide_border=false&include_all_commits=true&count_private=true" /> <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=prashannashrestha&layout=compact&bg_color=0d1117&title_color=FFD700&text_color=ffffff&border_color=2a2a2a&hide_border=false&langs_count=6" />
 
-## 📊 SIGNAL INTELLIGENCE
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=mrprashanna&show_icons=true&theme=dark&hide_border=true&title_color=FFD700&icon_color=FFD700&text_color=ffffff&bg_color=000000" alt="GitHub Stats"/>
-</p>
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mrprashanna&layout=compact&theme=dark&hide_border=true&title_color=FFD700&text_color=ffffff&bg_color=000000" alt="Top Languages"/>
-</p>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=prashannashrestha&theme=dark&background=0d1117&ring=FFD700&fire=FFD700&currStreakLabel=FFD700&sideLabels=ffffff&dates=aaaaaa" /></div>
+🦇 BAT‑SIGNAL · CONTACT CHANNELS
+<div align="center">
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mrprashanna/github-snake-dark/output/github-contribution-grid-snake-dark.svg" alt="Contribution Snake"/>
-</p>
-
----
-
-## 📡 BAT-SIGNAL: CONTACT
-
-<p align="center">
-  <strong>When the city needs code that stands in the dark.</strong>
-</p>
-
-<p align="center">
-  <a href="mailto:hello@prashannashrestha.com.np">
-    <img src="https://img.shields.io/badge/📧_Send_Signal-hello@prashannashrestha.com.np-000000?style=for-the-badge&logo=mail.ru&logoColor=FFD700&labelColor=111" alt="Email"/>
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/mrprashanna"><sub>GitHub</sub></a> • 
-  <a href="https://instagram.com/mrprashanna"><sub>Instagram</sub></a> • 
-  <a href="https://prashannashrestha.com.np"><sub>Portfolio</sub></a>
-</p>
-
----
-
-<p align="center">
-  <em>"The night is darkest just before the deploy. But I ensure the code always compiles."</em>
-</p>
-
-<p align="center">
-  <sub>🦇 <code>PRASHANNA.SHRESTHA</code> // GOTHAM MODE: ACTIVE</sub>
-</p>
-
-<!--
-🗝️ AESTHETIC TIPS (Hidden Section)
-• Enable GitHub Dark Dimmed theme for optimal viewing
-• Pin your most cinematic repos to profile
-• Use custom profile README for animated hero
-• Add github-readme-streak-stats for fire effect
-• Consider vercel analytics badge for live traffic
--->
+https://img.shields.io/badge/Email-Contact_Me-FFD700?style=for-the-badge&logo=gmail&logoColor=black&color=1A1A1A&labelColor=000000
+https://img.shields.io/badge/GitHub-Patches_at_Night-FFD700?style=for-the-badge&logo=github&logoColor=black&color=1A1A1A
+https://img.shields.io/badge/Instagram-The_Chronicles-FFD700?style=for-the-badge&logo=instagram&logoColor=black&color=1A1A1A
+</div>
+⚫ CLOSING QUOTE
+<div align="center"> <blockquote> “You either die a hero, or you live long enough to see yourself become the framework maintainer.<br/> But I choose the third path — build everything from scratch, and never look back.” </blockquote> <p><strong>— PRASHANNA SHRESTHA · THE DARK KNIGHT OF FRONTEND</strong></p></div><div align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,100:1a1a1a&height=100&section=footer" width="100%" /> </div><!-- 🔧 PROFILE AESTHETIC BOOST TIPS: - Enable GitHub Actions to generate a dark snake animation (platane/snk) for your contribution grid. - Add a custom banner with a looping GIF of rain + golden bat symbol (host on your portfolio or GIPHY). - Pin 3 repositories with “dark cinematic” READMEs matching this style. - Use a dark theme for your GitHub profile banner and avatar (silhouette or masked hero). - Set your status message: “⚫ Working in the shadows. Release at midnight.” -->
